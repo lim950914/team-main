@@ -6,10 +6,17 @@
 <mapper namespace="org.zerock.mapper.TeamMemberMapper">
 
 <insert id="insert">
-  INSERT INTO member
+  INSERT INTO tp_member
   (memberId, memberPw, memberName, memberBirth, memberPhoneNum, memberMail, memberAddNum, memberAddCity, memberAddHome, money)
   VALUES
   (#{memberId}, #{memberpw}, #{memberName}, #{memberBirth}, #{memberPhoneNum}, #{memberMail}, #{memberAddNum}, #{memberAddCity}, #{memberAddHome}, 100000)
+</insert>
+
+<insert id="insertAuth">
+  INSERT INTO tp_member_auth
+  (memberId, auth)
+  VALUES
+  (#{userid}, #{auth})
 </insert>
 
 </mapper>
