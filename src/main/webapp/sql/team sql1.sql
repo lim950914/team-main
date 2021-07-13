@@ -15,7 +15,7 @@ CREATE TABLE tp_member(
   memberAddCity VARCHAR(100) NOT NULL, -- 주소
   memberAddHome VARCHAR(100) NOT NULL, -- 상세주소
   regDate TIMESTAMP DEFAULT NOW(), -- 가입날짜
-  money int NOT NULL, -- 돈
+  money int, -- 돈
   enabled TINYINT(1) DEFAULT 1
 );
 
@@ -37,19 +37,26 @@ CREATE TABLE tp_member_auth (
 );
 
 DESC tp_member_auth;
+SELECT * FROM tp_member;
+SELECT * FROM tp_member_auth;
 
-	SELECT
-	 m.userid userid,
-	 m.userpw userpw,
-	 m.username username,
-	 m.enabled enabled,
-	 m.regdate regdate,
-	 m.updateDate updateDate,
-	 a.auth auth
-	FROM
-	 tbl_member m LEFT JOIN tbl_member_auth a ON m.userid = a.userid
-	WHERE
-	 m.userid = 'admin';
+  SELECT 
+	m.memberId memberId,
+	m.memberpw memberpw,
+	m.memberName memberName,
+	m.memberBirth memberBirth,
+	m.memberPhoneNum memberPhoneNum,
+	m.memberMail memberMail,
+	m.memberAddNum memberAddNum,
+	m.memberAddCity memberAddCity,
+	m.memberAddHome memberAddHome,
+    m.enabled enabled,
+	m.money money,
+	a.auth auth
+  FROM 
+    tp_member m LEFT JOIN tp_member_auth a ON m.memberId = a.memberId
+  WHERE
+    m.memberId = 'qwe';
 
 
 
