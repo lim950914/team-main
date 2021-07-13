@@ -1,25 +1,25 @@
 package org.zerock.service.member;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired; 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.zerock.domain.member.TPMemberVO;
-import org.zerock.mapper.member.TPMemberMapper;
+import org.zerock.domain.member.TpMemberVO;
+import org.zerock.mapper.member.TpMemberMapper;
 
 import lombok.Setter;
 
 @Service
-public class TPMemberServiceImpl implements TPMemberService {
+public class TpMemberServiceImpl implements TpMemberService {
 	
 	@Setter(onMethod_ = @Autowired)
-	private TPMemberMapper mapper;
+	private TpMemberMapper mapper;
 	
 	@Setter(onMethod_ = @Autowired)
 	private PasswordEncoder encoder;
 	
 	@Override
-	public boolean insert(TPMemberVO vo) {
+	public boolean insert(TpMemberVO vo) {
 		
 		// 패스워드 암호화
 		vo.setMemberPw(encoder.encode(vo.getMemberPw()));

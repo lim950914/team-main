@@ -8,7 +8,7 @@ import lombok.extern.log4j.Log4j;
 @Controller
 @RequestMapping("/member/*")
 @Log4j
-public class TPMemberController {
+public class TpMemberController {
 	
 	@RequestMapping("/join")
 	public void memberJoin() {

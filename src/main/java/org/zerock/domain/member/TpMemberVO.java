@@ -1,11 +1,12 @@
 package org.zerock.domain.member;
 
 import java.util.Date;
+import java.util.List;
 
 import lombok.Data;
 
 @Data
-public class TPMemberVO {
+public class TpMemberVO {
 	// 아이디
 	private String memberId;
 	
@@ -38,4 +39,15 @@ public class TPMemberVO {
 	
 	// 돈
 	private int money;
+	
+	private boolean enabled;
+	
+	private List<TpAuthVO> authList;
 }
+
+
+
+
+
+
+
