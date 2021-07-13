@@ -5,17 +5,15 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-light justify-content-center">
 	<ul class="navbar-nav">
 		<li class="nav-item"><a class="nav-link" href="#">Log-in</a></li>
-		
+			
 		<li class="nav-item"><a class="nav-link" href="#">Join us</a></li>
-		
+			
 		<li class="nav-item"><a class="nav-link" href="#">ShoppingBag</a></li>
-		
-		<li class="nav-item"><a class="nav-link" href="#">Order</a></li>
-		
+			
 		<li class="nav-item"><a class="nav-link" href="#">MyPage</a></li>
-		
+			
 		<li class="nav-item"><a class="nav-link" href="#">C.S</a></li>
-	</ul>
+	</ul>	
 </nav>
 <br>
 </body>
