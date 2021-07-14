@@ -7,9 +7,9 @@
 
 <insert id="insert">
   INSERT INTO tp_member
-  (memberId, memberPw, memberName, memberBirth, memberPhoneNum, memberMail, memberAddNum, memberAddCity, memberAddHome, money)
+  (memberId, memberPw, memberName, memberBirth, memberPhoneNum, memberMail, memberAddNum, memberAddCity, money)
   VALUES
-  (#{memberId}, #{memberpw}, #{memberName}, #{memberBirth}, #{memberPhoneNum}, #{memberMail}, #{memberAddNum}, #{memberAddCity}, #{memberAddHome}, 100000)
+  (#{memberId}, #{memberpw}, #{memberName}, #{memberBirth}, #{memberPhoneNum}, #{memberMail}, #{memberAddNum}, #{memberAddCity}, 100000)
 </insert>
 
 <insert id="insertAuth">
@@ -29,7 +29,6 @@
 	m.memberMail memberMail,
 	m.memberAddNum memberAddNum,
 	m.memberAddCity memberAddCity,
-	m.memberAddHome memberAddHome,
 	m.enabled enabled,
 	m.money money,
 	a.auth auth
@@ -49,7 +48,6 @@
   	<result property="memberMail" column="memberMail" />
   	<result property="memberAddNum" column="memberAddNum" />
   	<result property="memberAddCity" column="memberAddCity" />
-  	<result property="memberAddHome" column="memberAddHome" />
   	<result property="money" column="money" />
   	<collection property="authList" resultMap="authMap" />
   </resultMap>

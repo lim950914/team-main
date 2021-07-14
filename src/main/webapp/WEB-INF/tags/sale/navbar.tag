@@ -6,7 +6,7 @@
 	<ul class="navbar-nav">
 		<li class="nav-item"><a class="nav-link" href="#">Log-in</a></li>
 			
-		<li class="nav-item"><a class="nav-link" href="#">Join us</a></li>
+		<li class="nav-item"><a class="nav-link" href="${appRoot }/member/join">Join us</a></li>
 			
 		<li class="nav-item"><a class="nav-link" href="#">ShoppingBag</a></li>
 			

@@ -31,9 +31,6 @@ public class TpMemberVO {
 	// 주소
 	private String memberAddCity;
 	
-	// 상세주소
-	private String memberAddHome;
-	
 	// 가입일
 	private Date regDate;
 	
