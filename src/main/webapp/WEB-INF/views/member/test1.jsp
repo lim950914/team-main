@@ -56,7 +56,7 @@
 
 					<div class="row margin">
 						<div class="input-field col s12">
-							<input id="mem-pwcheck-input" type="password" />
+							<input id="mem-pwcheck-input" type="password"  />
 							<label for="mem-pwcheck-input">패스워드 확인</label>
 						</div>
 					</div>
@@ -77,7 +77,7 @@
 						<div class="input-field col s12">
 							<input id="mem-phone-input" name="memberPhoneNum" type="number" />
 							<button type="button" id="mem-phoneNum-btn" class="btn waves-effect waves-light col s3">인증하기</button>
-							<label for="mem-phone-input">휴대폰번호 '-' 제외하고 입력</label>
+							<label for="mem-phone-input">'-' 제외하고 입력</label>
 						</div>
 					</div>
 

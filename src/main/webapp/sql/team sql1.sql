@@ -5,15 +5,14 @@ USE untact;
 DROP TABLE tp_member;
 
 CREATE TABLE tp_member(
-  memberId VARCHAR(50) PRIMARY KEY, -- 아이디
+  memberId  VARCHAR(50) PRIMARY KEY, -- 아이디
   memberPw VARCHAR(100) NOT NULL, -- 비밀번호
   memberName VARCHAR(30) NOT NULL, -- 이름
-  memberBirth INT NOT NULL, -- 생일
-  memberPhoneNum INT NOT NULL, -- 폰번호
+  memberBirth DATE NOT NULL, -- 생일
+  memberPhoneNum VARCHAR(30) NOT NULL, -- 폰번호
   memberMail VARCHAR(100) NOT NULL, -- 이메일
   memberAddNum VARCHAR(100) NOT NULL, -- 우편번호
   memberAddCity VARCHAR(100) NOT NULL, -- 주소
-  memberAddHome VARCHAR(100) NOT NULL, -- 상세주소
   regDate TIMESTAMP DEFAULT NOW(), -- 가입날짜
   money int, -- 돈
   enabled TINYINT(1) DEFAULT 1
@@ -24,8 +23,8 @@ DESC tp_member;
 SELECT * FROM tp_member;
 
 INSERT INTO tp_member
-(memberId, memberPw, memberName, memberBirth, memberPhoneNum, memberMail, memberAddNum, memberAddCity, memberAddHome, money)
-VALUES ('qwe', '1234', '찬영', '950914', '01088076027', 'dlackswn2222@naver.com', '12345', '경기도 하남', '덕풍동', '1000');
+(memberId, memberPw, memberName, memberBirth, memberPhoneNum, memberMail, memberAddNum, memberAddCity, money)
+VALUES ('qwe', '1234', '찬영', '950914', '01088076027', 'dlackswn2222@naver.com', '12345', '경기도 하남', '1000');
 
 DROP TABLE tp_member_auth;
 
@@ -49,7 +48,6 @@ SELECT * FROM tp_member_auth;
 	m.memberMail memberMail,
 	m.memberAddNum memberAddNum,
 	m.memberAddCity memberAddCity,
-	m.memberAddHome memberAddHome,
     m.enabled enabled,
 	m.money money,
 	a.auth auth
@@ -57,7 +55,6 @@ SELECT * FROM tp_member_auth;
     tp_member m LEFT JOIN tp_member_auth a ON m.memberId = a.memberId
   WHERE
     m.memberId = 'qwe';
-
 
 
 

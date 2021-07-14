@@ -64,13 +64,16 @@
     -o-transform: translateY(0%);
     transform: translateY(0%);
 }
+
+#mem-phonecheck-btn {
+	background: #546e7a;
+}
 #mem-idcheck-btn {
 	background: #546e7a;
 }
 #mem-add-btn {
 	background: #546e7a;
 }
-
 #mem-phoneNum-btn {
 	background: #546e7a;
 }
