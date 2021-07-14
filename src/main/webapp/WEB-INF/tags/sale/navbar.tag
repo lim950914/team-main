@@ -2,7 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
 	<ul class="navbar-nav">
 		<li class="nav-item"><a class="nav-link" href="#">Log-in</a></li>
