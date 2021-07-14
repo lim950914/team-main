@@ -19,43 +19,6 @@
   (#{memberId}, #{auth})
 </insert>
 
-  <select id="read" resultMap="memberMap">
-  SELECT 
-	m.memberId memberId,
-	m.memberpw memberpw,
-	m.memberName memberName,
-	m.memberBirth memberBirth,
-	m.memberPhoneNum memberPhoneNum,
-	m.memberMail memberMail,
-	m.memberAddNum memberAddNum,
-	m.memberAddCity memberAddCity,
-	m.enabled enabled,
-	m.money money,
-	a.auth auth
-  FROM 
-    tp_member m LEFT JOIN tbl_member_auth a ON m.memberId = a.memberId
-  WHERE
-    m.memberId = #{userid}
-  
-  </select>
-  
-  
-  <resultMap type="org.zerock.domain.member.TpMemberVO" id="tpMemberMap">
-  	<id property="memberId" column="memberId" />
-  	<result property="memberpw" column="memberpw" />
-  	<result property="memberName" column="memberName" />
-  	<result property="memberPhoneNum" column="memberPhoneNum" />
-  	<result property="memberMail" column="memberMail" />
-  	<result property="memberAddNum" column="memberAddNum" />
-  	<result property="memberAddCity" column="memberAddCity" />
-  	<result property="money" column="money" />
-  	<collection property="authList" resultMap="authMap" />
-  </resultMap>
-  <resultMap type="org.zerock.domain.member.TpAuthVO" id="tpAuthMap">
-  	<result property="memberId" column="memberId" />
-  	<result property="auth" column="auth" />
-  </resultMap>
-
 </mapper>
 
 

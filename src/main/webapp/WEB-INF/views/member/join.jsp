@@ -30,6 +30,11 @@
 <body>
 <bd:navbar></bd:navbar>
 <div class="container">
+	<c:if test="${not empty param.error }">
+		<div id="alert1" class="alert alert-danger" role="alert">
+			회원 가입 실패.
+		</div>
+	</c:if>
 	<section id="mem-section">
 		<div class="row">
 			<div class="z-depth-1 card-panel" style="margin-left: 255px;">
@@ -110,12 +115,10 @@
 							<label for="mem-addcity-input" id="mem-addcity-label">주소</label>
 						</div>
 					</div>
-
 					<div class="row">
 						<div class="input-field col s12">
 							<button type="submit" id="mem-add-btn" class="btn waves-effect waves-light col s12">회원가입</button>
 						</div>
-
 					<div class="input-field col s12">
 						<p class="margin center medium-small sign-up"> 로그인 하시겠습니까?
 						<a style="color: #666;" href="${appRoot }/member/login">Log-in</a>
