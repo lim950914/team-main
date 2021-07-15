@@ -10,6 +10,7 @@
 
 <security:http>
 	<security:http-basic/>
+	<security:csrf disabled="true"/>
 </security:http>
 
 <security:authentication-manager>

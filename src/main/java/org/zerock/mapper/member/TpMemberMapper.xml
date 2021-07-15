@@ -9,7 +9,7 @@
   INSERT INTO tp_member
   (memberId, memberPw, memberName, memberBirth, memberPhoneNum, memberMail, memberAddNum, memberAddCity, money)
   VALUES
-  (#{memberId}, #{memberpw}, #{memberName}, #{memberBirth}, #{memberPhoneNum}, #{memberMail}, #{memberAddNum}, #{memberAddCity}, 100000)
+  (#{memberId}, #{memberPw}, #{memberName}, #{memberBirth}, #{memberPhoneNum}, #{memberMail}, #{memberAddNum}, #{memberAddCity}, 100000)
 </insert>
 
 <insert id="insertAuth">
