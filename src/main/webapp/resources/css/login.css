@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-#join-section {
+#container {
     clear: both;
     position: relative;
     margin: 50px auto 0px;
@@ -8,22 +8,10 @@
     width: 1000px;
     z-index: 1;
 }
-.row .col.s2 {
-    width: 16.66666%;
-    margin-left: 356px;
-    /* margin-left: auto; */
-    margin-top: -46px;
-    /* left: auto; */
-    /* right: auto; */
+html, body {
+    height: 100%;
 }
-.row .col.s3 {
-    width: 25%;
-    margin-left: 320px;
-    /* margin-left: auto; */
-    margin-top: -46px;
-    /* left: auto; */
-    /* right: auto; */
-}
+
 .medium-small {
     font-size: 0.9rem;
     margin: 0;
@@ -33,6 +21,7 @@
 .login-form {
     width: 450px;
 }
+
 
 .login-form-text {
     text-transform: uppercase;
@@ -53,6 +42,10 @@
   pointer-events: auto !important;
 }
 
+.input-field >.material-icons  {
+  padding-top:10px;
+}
+
 .input-field div.error{
     position: relative;
     top: -1rem;
@@ -64,32 +57,10 @@
     -o-transform: translateY(0%);
     transform: translateY(0%);
 }
-
-#join-phonecheck-btn {
-	background: #546e7a;
-}
-#join-idcheck-btn {
-	background: #546e7a;
-}
-#join-add-btn {
-	background: #546e7a;
-}
-#join-phoneNum-btn {
-	background: #546e7a;
-}
-
-#join-addCity-btn {
-	background: #546e7a;
-}
-
-.text-danger {
-  margin-left: 42px;
-}
-.text-primary {
-	margin-left: 42px;
-}
-
-input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+.col {
+    -ms-flex-preferred-size: 0;
+    flex-basis: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 101%;
 }

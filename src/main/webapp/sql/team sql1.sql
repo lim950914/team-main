@@ -36,6 +36,9 @@ CREATE TABLE tp_member_auth (
 );
 
 DESC tp_member_auth;
+
+DELETE FROM tp_member WHERE memberId = '';
+
 SELECT * FROM tp_member;
 SELECT * FROM tp_member_auth;
 

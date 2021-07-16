@@ -4,7 +4,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
 	<ul class="navbar-nav">
-		<li class="nav-item"><a class="nav-link" href="#">Log-in</a></li>
+		<li class="nav-item"><a class="nav-link" href="${appRoot }/member/login">Log-in</a></li>
 			
 		<li class="nav-item"><a class="nav-link" href="${appRoot }/member/join">Join us</a></li>
 			
