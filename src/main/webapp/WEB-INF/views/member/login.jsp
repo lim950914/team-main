@@ -8,14 +8,14 @@
 
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp" %>
 
-<title>Insert title here</title>
+<title>login</title>
 </head>
 <body>
 <div class="container">
 	<div class="row justify-content-center">
 		<div class="col-md-6 col-12">
 			<h1>로그인</h1>
-			<form action="${appRoot }/member/login" method="post">
+			<form action="${appRoot }/login" method="post">
 				<div class="form-group">
 					<label for="login-id-input">ID</label>				
 					<input id="login-id-input" class="form-control" name="memberId" />

@@ -36,5 +36,12 @@ public class MemberServiceImple implements MemberService {
 				
 		return cnt == 1;
 	}
+
+	@Override
+	public MemberVO read(String name) {
+		
+		return mapper.read(name);
+	}
+	
 	
 }

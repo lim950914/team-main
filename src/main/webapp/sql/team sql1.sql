@@ -37,7 +37,7 @@ CREATE TABLE tp_member_auth (
 
 DESC tp_member_auth;
 
-DELETE FROM tp_member WHERE memberId = '';
+DELETE FROM tp_member WHERE memberId = 'qwe';
 
 SELECT * FROM tp_member;
 SELECT * FROM tp_member_auth;
@@ -57,9 +57,16 @@ SELECT * FROM tp_member_auth;
   FROM 
     tp_member m LEFT JOIN tp_member_auth a ON m.memberId = a.memberId
   WHERE
-    m.memberId = 'qwe';
+    m.memberId = 'zxc';
 
-
+-- https://docs.spring.io/spring-security/site/docs/current/reference/html5/#persistent-login-remember-me-schema
+-- 로그인 유지 테이블 spring.io
+create table persistent_logins (
+    username varchar(64) not null,
+    series varchar(64) primary key,
+    token varchar(64) not null,
+    last_used timestamp not null
+);
 
 
 
