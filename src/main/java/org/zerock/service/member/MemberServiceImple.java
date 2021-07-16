@@ -28,15 +28,13 @@ public class MemberServiceImple implements MemberService {
 		vo.setMemberPw(encoder.encode(vo.getMemberPw()));
 		int cnt = mapper.insert(vo);
 		
-		return mapper.insert(vo) == 1;
-		
-//		// 권한 입력
-//		AuthVO avo = new AuthVO();
-//		avo.setMemberId(vo.getMemberId());
-//		avo.setAuth("");
-//		mapper.insertAuth(avo);
+		// 권한 입력
+		AuthVO avo = new AuthVO();
+		avo.setMemberId(vo.getMemberId());
+		avo.setAuth("ROLE_USER");
+		mapper.insertAuth(avo);
 				
-//		return cnt == 1;
+		return cnt == 1;
 	}
 	
 }

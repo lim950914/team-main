@@ -19,7 +19,7 @@
   (#{memberId}, #{auth})
 </insert>
 
-  <select id="read" resultMap="memberMap">
+  <select id="read" resultMap="MemberMap">
   SELECT 
 	m.memberId memberId,
 	m.memberPw memberPw,

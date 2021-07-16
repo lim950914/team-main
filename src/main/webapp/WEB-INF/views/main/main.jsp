@@ -13,6 +13,11 @@
 <body>
 <div class="container">
 	<h1>main</h1>
+	  <sec:authorize access="isAuthenticated()">
+	  <form action="${appRoot }/logout" method="post">
+	  	<input type="submit" class="btn btn-dark" value="로그아웃">
+	  </form>
+  </sec:authorize>
 </div>
 </body>
 </html>

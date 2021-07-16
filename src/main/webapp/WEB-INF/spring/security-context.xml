@@ -14,9 +14,9 @@
 	<security:form-login login-page="/member/login" default-target-url="/main/main"/>
 	<security:logout/>
 	<security:csrf disabled="true"/>
+	<security:remember-me data-source-ref="dataSource"/>
 </security:http>
 
- 
 <security:authentication-manager>
 	<security:authentication-provider user-service-ref="customUserDetailsService">
 		<security:password-encoder ref="bcryptPasswordEncoder"/>
