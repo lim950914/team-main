@@ -18,7 +18,7 @@ $(document).ready(function() {
 	$("#alert-success").hide(); 
 	$("#alert-danger").hide(); 
 	$("#passwordLengthFail").hide();
-
+	
 	// 비밀번호 일치 확인
 	$("input").keyup(function() {  
 		var pwd1=$("#join-pw-input1").val(); 
