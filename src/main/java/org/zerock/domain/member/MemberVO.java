@@ -16,7 +16,6 @@ public class MemberVO {
 	private Integer memberAddNum;	// 우편번호
 	private String memberAddCity;	// 주소 	
 	private Date regDate;		// 생성일
-	private Integer money;			// 돈
 	private Boolean enabled;
 	
 	private List<AuthVO> authList;

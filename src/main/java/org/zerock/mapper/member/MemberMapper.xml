@@ -7,9 +7,9 @@
 
 <insert id="insert">
   INSERT INTO tp_member
-  (memberId, memberPw, memberName, memberBirth, memberPhoneNum, memberMail, memberAddNum, memberAddCity, money)
+  (memberId, memberPw, memberName, memberBirth, memberPhoneNum, memberMail, memberAddNum, memberAddCity)
   VALUES
-  (#{memberId}, #{memberPw}, #{memberName}, #{memberBirth}, #{memberPhoneNum}, #{memberMail}, #{memberAddNum}, #{memberAddCity}, 100000)
+  (#{memberId}, #{memberPw}, #{memberName}, #{memberBirth}, #{memberPhoneNum}, #{memberMail}, #{memberAddNum}, #{memberAddCity})
 </insert>
 
 <insert id="insertAuth">
@@ -30,7 +30,6 @@
 	m.memberAddNum memberAddNum,
 	m.memberAddCity memberAddCity,
 	m.enabled enabled,
-	m.money money,
 	a.auth auth
   FROM 
     tp_member m LEFT JOIN tp_member_auth a ON m.memberId = a.memberId
@@ -48,7 +47,6 @@
   	<result property="memberAddNum" column="memberAddNum" />
   	<result property="memberAddCity" column="memberAddCity" />
   	<result property="regdate" column="regdate" />
-  	<result property="money" column="money" />
   	<result property="enabled" column="enabled" />
   	<collection property="authList" resultMap="authMap" />
   </resultMap>

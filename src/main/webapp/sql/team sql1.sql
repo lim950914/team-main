@@ -14,7 +14,6 @@ CREATE TABLE tp_member(
   memberAddNum VARCHAR(100) NOT NULL, -- 우편번호
   memberAddCity VARCHAR(100) NOT NULL, -- 주소
   regDate TIMESTAMP DEFAULT NOW(), -- 가입날짜
-  money int, -- 돈
   enabled TINYINT(1) DEFAULT 1
 );
 
@@ -23,8 +22,8 @@ DESC tp_member;
 SELECT * FROM tp_member;
 
 INSERT INTO tp_member
-(memberId, memberPw, memberName, memberBirth, memberPhoneNum, memberMail, memberAddNum, memberAddCity, money)
-VALUES ('qwe', '1234', '찬영', '950914', '01088076027', 'dlackswn2222@naver.com', '12345', '경기도 하남', '1000');
+(memberId, memberPw, memberName, memberBirth, memberPhoneNum, memberMail, memberAddNum, memberAddCity)
+VALUES ('qwe', '1234', '찬영', '950914', '01088076027', 'dlackswn2222@naver.com', '12345', '경기도 하남');
 
 DROP TABLE tp_member_auth;
 
@@ -37,14 +36,15 @@ CREATE TABLE tp_member_auth (
 
 DESC tp_member_auth;
 
-DELETE FROM tp_member WHERE memberId = 'qwe';
+DELETE FROM tp_member WHERE memberId = 'zxc';
+DELETE FROM tp_member_auth WHERE memberId = 'zxc';
 
 SELECT * FROM tp_member;
 SELECT * FROM tp_member_auth;
 
   SELECT 
 	m.memberId memberId,
-	m.memberpw memberpw,
+	m.memberPw memberPw,
 	m.memberName memberName,
 	m.memberBirth memberBirth,
 	m.memberPhoneNum memberPhoneNum,
@@ -52,12 +52,11 @@ SELECT * FROM tp_member_auth;
 	m.memberAddNum memberAddNum,
 	m.memberAddCity memberAddCity,
     m.enabled enabled,
-	m.money money,
 	a.auth auth
   FROM 
     tp_member m LEFT JOIN tp_member_auth a ON m.memberId = a.memberId
   WHERE
-    m.memberId = 'zxc';
+    m.memberId = 'asd';
 
 -- https://docs.spring.io/spring-security/site/docs/current/reference/html5/#persistent-login-remember-me-schema
 -- 로그인 유지 테이블 spring.io

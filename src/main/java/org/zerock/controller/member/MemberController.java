@@ -1,10 +1,13 @@
 package org.zerock.controller.member;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.member.Criteria;
 import org.zerock.domain.member.MemberVO;
@@ -43,17 +46,28 @@ public class MemberController {
 			return "redirect:/member/join?error";
 		}
 	}
-
-	// date 타입 변환시켜 주는 메소드
-	// https://docs.spring.io/spring-framework/docs/current/reference/html/web.html#spring-web
-	// InitBinder 핸들러 메소드가 일하기전 실행하는 메소드라는 개념
-	// ControllerAdvice에서 대신 실행 시켰다
-//	@InitBinder 
-//    public void initBinder(WebDataBinder binder) {
-//        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-//        dateFormat.setLenient(false);
-//        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true)); // true 빈것 허용 false 안 허용
-//    }
+	
+	@GetMapping("/dup")
+	@ResponseBody
+	public ResponseEntity<String> duplicate(String id) {
+		log.info("id중복 확인");
+		
+		// 서비스 일 시키고
+		MemberVO vo = serivce.read(id);
+		
+		if (vo == null) {
+			return new ResponseEntity<>("success", HttpStatus.OK);
+		} else {
+			return new ResponseEntity<> ("exist", HttpStatus.OK);
+		}
+		
+	}
+	
+		// date 타입 변환시켜 주는 메소드
+		// https://docs.spring.io/spring-framework/docs/current/reference/html/web.html#spring-web
+		// InitBinder 핸들러 메소드가 일하기전 실행하는 메소드
+		// ControllerAdvice에서 실행
+	
 }
 
 	

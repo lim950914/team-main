@@ -1,24 +1,22 @@
-<%@ page contentType="text/html; charset=UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ taglib prefix="bd" tagdir="/WEB-INF/tags/sale"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="u"  tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
 <!-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> -->
-
- <!-- Compiled and minified CSS 테마 css -->
+ <!-- Compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
 <!--Import Google Icon Font-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <!--Import materialize.css-->
@@ -408,21 +406,23 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 }
 </style>
 <body>
-<bd:navbar></bd:navbar>
+<u:mainNav/>
 <div class="container">
 <section id="container">
 	<div id="login-page" class="row">
 		<div class="z-depth-1 card-panel" style="margin-left: 255px;">
-	    <form class="login-form" action="${appRoot }/member/join" method="post" id="joinForm">
+	    <form class="login-form" action="${root }/user/userRegister" method="post" id="joinForm">
 	      <div class="row">
 	        <div class="input-field col s12 center">
 	          <h4>회원가입</h4>
-	          <p class="center">ELON MASK에 오신걸 환영합니다.</p>
+	          <p class="center">BCD 쇼핑몰에 오신걸 환영합니다.</p>
 	        </div>
 	      </div>
 				<div class="row margin">
 	        <div class="input-field col s12">
-	          <input id="user_id" name="user_id" type="text" maxlength="20"  onKeyUp="checkSpacebar(this);" required/>
+	          <!-- <i class="mdi-social-person-outline prefix"></i> -->
+	          <i class="material-icons prefix">portrait</i>
+	          <input id="user_id" name="user_id" type="text" maxlength="20"  onKeyUp="checkSpacebar(this);" onpaste="return false;" required/>
 	          <button type="button" id="idConfirm" class="btn waves-effect waves-light col s3">중복확인</button>
 	          <label for="user_id">아이디</label>
 	          <small class="text-danger" id="idLengthFail">영문 숫자 최소 4글자 이상 입력해주세요.</small>
@@ -434,6 +434,8 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 	      </div>
 	      <div class="row margin">
 	        <div class="input-field col s12">
+	          <!-- <i class="mdi-social-person-outline prefix"></i> -->
+	          <i class="material-icons prefix">account_circle</i>
 	          <input id="user_name" name="user_name" type="text" onKeyUp="checkSpacebar(this);" onpaste="return false;" required/>
 	          <label for="user_name">이름</label>
 	        </div>
@@ -441,6 +443,8 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 	
 	      <div class="row margin">
 	        <div class="input-field col s12">
+	          <!-- <i class="mdi-social-person-outline prefix"></i> -->
+	          <i class="material-icons prefix">person_outline</i>
 	          <input id="user_nickname" name="user_nickname" type="text" style="cursor: auto;" onKeyUp="checkSpacebar(this);" onpaste="return false;" required />
 	          <button type="button" id="nickCheck" class="btn waves-effect col s3">중복확인</button>
 	          <label for="user_nickname">닉네임</label>
@@ -454,6 +458,8 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 	
 	      <div class="row margin">
 	        <div class="input-field col s12">
+	          <!-- <i class="mdi-action-lock-outline prefix"></i> -->
+	          <i class="material-icons prefix">vpn_key</i>
 	          <input id="user_password" id="user_password" name="user_password" type="password" onpaste="return false;" required />
 	          <label for="user_password">패스워드</label>
 	          <small class="text-danger" id="passwordLengthFail">최소 4글자 이상 입력해주세요.</small>
@@ -462,6 +468,8 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 	
 	      <div class="row margin">
 	        <div class="input-field col s12">
+	          <!-- <i class="mdi-action-lock-outline prefix"></i> -->
+	          <i class="material-icons prefix">vpn_key</i>
 	          <input id="confirmPassword" name="confirmPassword" type="password" onpaste="return false;" required/>
 	          <label for="confirmPassword">패스워드 확인</label>
 	          <small class="text-primary" id="alert-success">비밀번호가 일치합니다.</small> 
@@ -471,6 +479,8 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 				
 				<div class="row margin">
 	        <div class="input-field col s12">
+	          <!-- <i class="mdi-action-lock-outline prefix"></i> -->
+	          <i class="material-icons prefix">perm_contact_calendar</i>
 	          <input id="user_birth" name="user_birth" type="date" required/>
 	          <label for="user_birth">생년월일</label>
 	        </div>
@@ -478,7 +488,9 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 	      
 				<div class="row margin">
 	        <div class="input-field col s12">
-	          <input id="user_phone" name="user_phone" type="number" onKeyUp="checkSpacebar(this);"/>
+	          <!-- <i class="mdi-action-lock-outline prefix"></i> -->
+	          <i class="material-icons prefix">phone_android</i>
+	          <input id="user_phone" name="user_phone" type="number" onKeyUp="checkSpacebar(this);" onpaste="return false;" required/>
 	          <button type="button" id="zip_code_btn" class="btn waves-effect waves-light col s3">인증하기</button>
 	          <label for="user_phone">'-' 제외하고 입력</label>
 	          <small class="text-primary" id="noUse">인증번호가 전송되었습니다.</small>
@@ -489,6 +501,8 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 	      
 	      <div class="row margin">
 	        <div class="input-field col s12">
+	          <!-- <i class="mdi-action-lock-outline prefix"></i> -->
+	          <i class="material-icons prefix">vpn_key</i>
 	          <input id="phoneConfirm" name="phoneConfirm" type="number" onKeyUp="checkSpacebar(this);" onpaste="return false;" required/>
 	          <button type="button" id="phoneConfirmBtn" class="btn waves-effect waves-light col s2">확인</button>
 	          <label for="phoneConfirm">인증번호 입력</label>
@@ -499,6 +513,8 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 	      
 	      <div class="row margin">
 	        <div class="input-field col s12">
+	          <!-- <i class="mdi-action-lock-outline prefix"></i> -->
+	          <i class="material-icons prefix">home</i>
 	          <input id="addr" name="user_address" type="text" required/>
 	          <button type="button" id="zip_code_btn" onclick="javascript:goPopup();" class="btn waves-effect waves-light col s2">검색</button>
 	          <label for="addr" id="zipLabel">주소</label>
@@ -528,5 +544,6 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
   </div>
 </section>
 </div>
+<u:footer/>
 </body>
 </html>

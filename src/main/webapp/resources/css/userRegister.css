@@ -8,10 +8,22 @@
     width: 1000px;
     z-index: 1;
 }
-html, body {
-    height: 100%;
+.row .col.s2 {
+    width: 16.66666%;
+    margin-left: 356px;
+    /* margin-left: auto; */
+    margin-top: -46px;
+    /* left: auto; */
+    /* right: auto; */
 }
-
+.row .col.s3 {
+    width: 25%;
+    margin-left: 320px;
+    /* margin-left: auto; */
+    margin-top: -46px;
+    /* left: auto; */
+    /* right: auto; */
+}
 .medium-small {
     font-size: 0.9rem;
     margin: 0;
@@ -21,7 +33,6 @@ html, body {
 .login-form {
     width: 450px;
 }
-
 
 .login-form-text {
     text-transform: uppercase;
@@ -57,10 +68,26 @@ html, body {
     -o-transform: translateY(0%);
     transform: translateY(0%);
 }
-.col {
-    -ms-flex-preferred-size: 0;
-    flex-basis: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    max-width: 101%;
+#idConfirm:hover {
+	background: #e0e0e0;
+}
+#nickCheck:hover {
+	background: #e0e0e0;
+}
+#zip_code_btn:hover {
+	background: #e0e0e0;
+}
+#phoneConfirmBtn:hover {
+	background: #e0e0e0;
+}
+
+.text-danger {
+  margin-left: 42px;
+}
+.text-primary {
+	margin-left: 42px;
+}
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
