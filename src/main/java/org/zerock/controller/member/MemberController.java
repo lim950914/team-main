@@ -29,6 +29,16 @@ public class MemberController {
 		
 	}
 	
+	@GetMapping("/NewFile")
+	public void memberJoin2(Criteria cri) {
+		log.info("회원가입dddd");
+	}
+	
+	@GetMapping("/asd")
+	public void memberJoin3(Criteria cri) {
+		log.info("회원가입dddd");
+	}
+	
 	@GetMapping("/join")
 	public void memberJoin(Criteria cri) {
 		log.info("회원가입dddd");

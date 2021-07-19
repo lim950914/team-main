@@ -6,6 +6,7 @@
 <html>
 <head>
 
+
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp"%>
 
 <title>Join us</title>
@@ -17,12 +18,26 @@ $(document).ready(function() {
 	// 각 엘리먼트 오류 창 숨김
 	$("#alert-success").hide(); 
 	$("#alert-danger").hide(); 
+	$("#phone-success").hide(); 
+	$("#phone-danger").hide();
+	$("#idCheckSuccess").hide(); 
+	$("#idCheckFail").hide();
+	$("#idYes").hide();
+	$("#nickCheckSuccess").hide(); 
+	$("#nickCheckFail").hide();
+	$("#nickYes").hide();
+	$("#idLengthFail").hide();
+	$("#nicknameLengthFail").hide();
 	$("#passwordLengthFail").hide();
-
+	$("#inUse").hide();
+	$("#null").hide();
+	$("#noUse").hide();
+	
+	
 	// 비밀번호 일치 확인
 	$("input").keyup(function() {  
-		var pwd1=$("#join-pw-input1").val(); 
-		var pwd2=$("#join-pw-input2").val(); 
+		var pwd1=$("#user_password").val(); 
+		var pwd2=$("#confirmPassword").val(); 
 		
 		if(pwd1 != "" || pwd2 != "") { 
 			if(pwd1 == pwd2) { 
@@ -36,16 +51,18 @@ $(document).ready(function() {
 			} 
 		}   
 	}); 
+	
+	
   
-	$('#join-pw-input1').on("blur keyup", function() {
+	$('#user_password').on("blur keyup", function() {
 		if ($(this).val().length < 4 ) {
 			$("#passwordLengthFail").show();
 		} else {
 			$("#passwordLengthFail").hide();
 		}
 	});	
+	
 });
-
 
 </script>
 
@@ -72,34 +89,18 @@ $(document).ready(function() {
 						<small id="id-message" class="form-text"></small>
 					</div>
 					
-					<!-- 
 					<div class="form-group">
-						<label for="join-pw-input1">패스워드</label>
-						<input id="join-pw-input1" name="memberPw" type="password" class="form-control" />
-					</div>
-					 -->
-					
-					<div class="form-group">
-	       	   			<label for="join-pw-input1">패스워드</label>
-						<input class="form-control" id="join-pw-input1" name="memberPw" type="password" onpaste="return false;" required />
+	       	   			<label for="user_password">패스워드</label>
+						<input class="form-control" id="user_password" id="user_password" name="user_password" type="password" onpaste="return false;" required />
 	          			<small class="text-danger" id="passwordLengthFail">최소 4글자 이상 입력해주세요.</small>
 					</div>
-					
+
 					<div class="form-group">
-	         	 		<label for="join-pw-input2">패스워드 확인</label>
-						<input class="form-control" id="join-pw-input2" type="password" onpaste="return false;" required/>
+	         	 		<label for="confirmPassword">패스워드 확인</label>
+						<input class="form-control" id="confirmPassword" name="confirmPassword" type="password" onpaste="return false;" required/>
 	          			<small class="text-primary" id="alert-success">비밀번호가 일치합니다.</small> 
 			 			<small class="text-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</small>
 					</div>
-					
-					<!-- 
-					<div class="form-group">
-						<label for="join-pw-input2">패스워드 확인</label>
-						<input id="join-pw-input2" type="password" class="form-control" />
-						<small id="password-message1" class="form-text text-danger"></small>
-						<small id="password-message2" class="form-text text-primary"></small>
-					</div>
-					 -->
 					
 					<div class="form-group">
 						<label for="join-name-input">이름</label>
