@@ -36,6 +36,7 @@
 	m.memberMail memberMail,
 	m.memberAddNum memberAddNum,
 	m.memberAddCity memberAddCity,
+	m.regdate regdate,
 	m.enabled enabled,
 	a.auth auth
   FROM 

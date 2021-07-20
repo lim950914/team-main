@@ -53,6 +53,7 @@ SELECT * FROM tp_member_auth;
 	m.memberMail memberMail,
 	m.memberAddNum memberAddNum,
 	m.memberAddCity memberAddCity,
+    m.regDate regDate,
     m.enabled enabled,
 	a.auth auth
   FROM 
