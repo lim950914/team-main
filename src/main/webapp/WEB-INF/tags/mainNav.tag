@@ -97,8 +97,8 @@
 					<div class="group login_status">
 						<c:choose>
 							<c:when test="${authUser == null}">
-								<a style="color: #666;" href="${root }/user/login">로그인</a>&nbsp; &nbsp; 
-								<a style="color: #666;" href="${root }/user/userRegister">회원가입</a>
+								<a style="color: #666;" href="${appRoot }/member/login">로그인</a>&nbsp; &nbsp; 
+								<a style="color: #666;" href="${appRoot }/member/join">회원가입</a>
 							</c:when>
 							<c:otherwise>
 								<a style="color: #666;" href="${root }/user/logout">로그아웃</a>
