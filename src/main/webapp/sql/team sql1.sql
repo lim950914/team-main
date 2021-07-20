@@ -69,8 +69,8 @@ create table persistent_logins (
     last_used timestamp not null
 );
 
-select COUNT(*) from tp_member where memberId = 'asdf';
-
+SELECT memberId, memberPw, membernickName, memberPhoneNum, regDate from tp_member WHERE memberPhoneNum = '01088076027';
+SELECT memberId, memberPw, membernickName, memberPhoneNum, regDate from tp_member WHERE memberPhoneNum = #{memberPhoneNum};
 
 
 
