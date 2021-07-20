@@ -8,6 +8,7 @@ CREATE TABLE tp_member(
   memberId  VARCHAR(50) PRIMARY KEY, -- 아이디
   memberPw VARCHAR(100) NOT NULL, -- 비밀번호
   memberName VARCHAR(30) NOT NULL, -- 이름
+  membernickName VARCHAR(30) NOT NULL, -- 닉네임
   memberBirth DATE NOT NULL, -- 생일
   memberPhoneNum VARCHAR(30) NOT NULL, -- 폰번호
   memberMail VARCHAR(100) NOT NULL, -- 이메일
@@ -22,8 +23,8 @@ DESC tp_member;
 SELECT * FROM tp_member;
 
 INSERT INTO tp_member
-(memberId, memberPw, memberName, memberBirth, memberPhoneNum, memberMail, memberAddNum, memberAddCity)
-VALUES ('qwe', '1234', '찬영', '950914', '01088076027', 'dlackswn2222@naver.com', '12345', '경기도 하남');
+(memberId, memberPw, memberName, membernickName, memberBirth, memberPhoneNum, memberMail, memberAddNum, memberAddCity)
+VALUES ('qwe', '1234', '찬영', '비대변', '950914', '01088076027', 'dlackswn2222@naver.com', '12345', '경기도 하남');
 
 DROP TABLE tp_member_auth;
 
@@ -36,8 +37,8 @@ CREATE TABLE tp_member_auth (
 
 DESC tp_member_auth;
 
-DELETE FROM tp_member WHERE memberId = 'zxc';
-DELETE FROM tp_member_auth WHERE memberId = 'zxc';
+DELETE FROM tp_member WHERE memberId = 'qwe';
+DELETE FROM tp_member_auth WHERE memberId = 'qwe';
 
 SELECT * FROM tp_member;
 SELECT * FROM tp_member_auth;
@@ -46,6 +47,7 @@ SELECT * FROM tp_member_auth;
 	m.memberId memberId,
 	m.memberPw memberPw,
 	m.memberName memberName,
+    m.membernickName membernickName,
 	m.memberBirth memberBirth,
 	m.memberPhoneNum memberPhoneNum,
 	m.memberMail memberMail,
@@ -56,7 +58,7 @@ SELECT * FROM tp_member_auth;
   FROM 
     tp_member m LEFT JOIN tp_member_auth a ON m.memberId = a.memberId
   WHERE
-    m.memberId = 'asd';
+    m.memberId = 'qwer';
 
 -- https://docs.spring.io/spring-security/site/docs/current/reference/html5/#persistent-login-remember-me-schema
 -- 로그인 유지 테이블 spring.io
@@ -67,7 +69,7 @@ create table persistent_logins (
     last_used timestamp not null
 );
 
-
+select COUNT(*) from tp_member where memberId = 'asdf';
 
 
 

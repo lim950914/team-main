@@ -1,5 +1,7 @@
 package org.zerock.controller.member;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,25 +28,15 @@ public class MemberController {
 	
 	@RequestMapping("/login")
 	public void login() {
-		
+		log.info("로그인");
 	}
 	
-	@GetMapping("/NewFile")
-	public void memberJoin2(Criteria cri) {
-		log.info("회원가입dddd");
-	}
-	
-	@GetMapping("/asd")
-	public void memberJoin3(Criteria cri) {
-		log.info("회원가입dddd");
-	}
-	
-	@GetMapping("/join")
+	@GetMapping("/join") // 회원가입 페이지 매핑
 	public void memberJoin(Criteria cri) {
-		log.info("회원가입dddd");
+		log.info("회원가입");
 	}
 	
-	@PostMapping("/join")
+	@PostMapping("/join") // 회원가입
 	public String joinPost(MemberVO vo, RedirectAttributes rttr) {
 		log.info(vo);
 		

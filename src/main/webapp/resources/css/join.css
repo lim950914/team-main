@@ -68,7 +68,7 @@
     -o-transform: translateY(0%);
     transform: translateY(0%);
 }
-#idConfirm:hover {
+#id-dup-btn:hover {
 	background: #e0e0e0;
 }
 #nickCheck:hover {

@@ -10,6 +10,7 @@ import org.zerock.domain.member.MemberVO;
 import org.zerock.mapper.member.MemberMapper;
 
 import lombok.Setter;
+import lombok.extern.log4j.Log4j;
 
 @Service
 public class MemberServiceImple implements MemberService {
@@ -38,10 +39,8 @@ public class MemberServiceImple implements MemberService {
 	}
 
 	@Override
-	public MemberVO read(String name) {
-		
-		return mapper.read(name);
+	public MemberVO read(String memberId) {
+		return mapper.read(memberId);
 	}
-	
-	
+
 }

@@ -10,6 +10,7 @@ public class MemberVO {
 	private String memberId; 	// 아아디
 	private String memberPw; 	// 비밀번호
 	private String memberName;	// 이름
+	private String membernickName; // 닉네임
 	private String memberPhoneNum;	// 휴대전화
 	private Date memberBirth;	// 생일
 	private String memberMail;	// 이메일

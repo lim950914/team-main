@@ -7,9 +7,9 @@
 
 <insert id="insert">
   INSERT INTO tp_member
-  (memberId, memberPw, memberName, memberBirth, memberPhoneNum, memberMail, memberAddNum, memberAddCity)
+  (memberId, memberPw, memberName, membernickName, memberBirth, memberPhoneNum, memberMail, memberAddNum, memberAddCity)
   VALUES
-  (#{memberId}, #{memberPw}, #{memberName}, #{memberBirth}, #{memberPhoneNum}, #{memberMail}, #{memberAddNum}, #{memberAddCity})
+  (#{memberId}, #{memberPw}, #{memberName}, #{membernickName}, #{memberBirth}, #{memberPhoneNum}, #{memberMail}, #{memberAddNum}, #{memberAddCity})
 </insert>
 
 <insert id="insertAuth">
@@ -24,6 +24,7 @@
 	m.memberId memberId,
 	m.memberPw memberPw,
 	m.memberName memberName,
+	m.membernickName membernickName,
 	m.memberBirth memberBirth,
 	m.memberPhoneNum memberPhoneNum,
 	m.memberMail memberMail,
@@ -41,6 +42,7 @@
   	<id property="memberId" column="memberId" />
   	<result property="memberPw" column="memberPw" />
   	<result property="memberName" column="memberName" />
+  	<result property="membernickName" column="membernickName" />
   	<result property="memberPhoneNum" column="memberPhoneNum" />
   	<result property="memberBirth" column="memberBirth" />
   	<result property="memberMail" column="memberMail" />

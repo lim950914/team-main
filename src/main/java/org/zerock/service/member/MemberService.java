@@ -6,6 +6,8 @@ public interface MemberService {
 
 	boolean insert(MemberVO vo);
 	
-	MemberVO read(String name);
-	
+	public MemberVO read(String memberId);
+
+	MemberVO getUser(String memberId);
+
 }
