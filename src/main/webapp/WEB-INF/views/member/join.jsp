@@ -130,10 +130,10 @@ $(document).ready(function() {
 		
 		$.ajax({
 		    type: "GET",
-		    url: "${appRoot}/user/sendSMS",
+		    url: "${appRoot}/member/sendSMS",
 		    dataType : "json",
 		    data: {
-		        "user_phone" : user_phone
+		        "memberPhoneNum" : memberPhoneNum
 		    },
 		    success: function(res) {
 		    	console.log(res);
@@ -161,7 +161,7 @@ $(document).ready(function() {
 
 		$.ajax ({
 			type: "GET",
-			url: "${appRoot}/user/authentication",
+			url: "${appRoot}/member/authentication",
 			dataType : "json",
 			data: { "phoneConfirm" : phoneConfirm},
 			success: function(res) {
