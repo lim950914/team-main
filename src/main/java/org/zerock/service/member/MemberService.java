@@ -8,6 +8,4 @@ public interface MemberService {
 	
 	public MemberVO read(String memberId);
 
-	MemberVO getUser(String memberId);
-
 }
