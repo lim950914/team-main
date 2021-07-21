@@ -72,7 +72,7 @@
 					<h2 class="skip">주요서비스 바로가기</h2>
 					<ul>
 						<li>
-							<a href="${root }/main/mainPage" class="" >베스트</a>
+							<a href="${root }/main/mainPage" class="" >Log-in</a>
 						</li>
 						<li>
 							<a href="${root }/freeboard/list" class="">자유게시판</a>

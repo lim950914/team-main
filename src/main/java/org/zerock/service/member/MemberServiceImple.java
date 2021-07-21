@@ -1,9 +1,7 @@
 package org.zerock.service.member;
 
 
-import java.util.HashMap;
 
-import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -13,8 +11,6 @@ import org.zerock.domain.member.MemberVO;
 import org.zerock.mapper.member.MemberMapper;
 
 import lombok.Setter;
-import net.nurigo.java_sdk.api.Message;
-import net.nurigo.java_sdk.exceptions.CoolsmsException;
 
 @Service
 public class MemberServiceImple implements MemberService {
