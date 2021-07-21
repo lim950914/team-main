@@ -11,5 +11,4 @@ public interface MemberMapper {
 	
 	public MemberVO read(String memberId);
 	
-//	public MemberVO findMember(String memberPhoneNum);
 }

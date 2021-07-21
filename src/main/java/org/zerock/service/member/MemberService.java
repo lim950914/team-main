@@ -8,11 +8,4 @@ public interface MemberService {
 	
 	public MemberVO read(String memberId);
 
-
-//	MemberVO findMember(String memberPhoneNum);
-//
-//	void smsService(String memberPhoneNum, String numStr);
-//	
-//	public void smsSubmit(String memberPhoneNum, String smsContent);
-
 }

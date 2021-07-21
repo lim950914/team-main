@@ -23,8 +23,8 @@ DESC tp_member;
 SELECT * FROM tp_member;
 
 INSERT INTO tp_member
-(memberId, memberPw, memberName, membernickName, memberBirth, memberPhoneNum, memberMail, memberAddNum, memberAddCity)
-VALUES ('qwe', '1234', '찬영', '비대변', '950914', '01088076027', 'dlackswn2222@naver.com', '12345', '경기도 하남');
+(memberId, memberPw, memberName, membernickName, memberBirth, memberPhoneNum, memberMail, memberAddNum, memberAddCity, regDate)
+VALUES ('asdf', '1234', '찬영', '비대변', '950914', '01088076027', 'dlackswn2222@naver.com', '12345', '경기도 하남', NOW() );
 
 DROP TABLE tp_member_auth;
 
@@ -37,8 +37,8 @@ CREATE TABLE tp_member_auth (
 
 DESC tp_member_auth;
 
-DELETE FROM tp_member WHERE memberId = 'qwe';
-DELETE FROM tp_member_auth WHERE memberId = 'qwe';
+DELETE FROM tp_member WHERE memberId = 'qwer';
+DELETE FROM tp_member_auth WHERE memberId = 'qwer';
 
 SELECT * FROM tp_member;
 SELECT * FROM tp_member_auth;
@@ -59,7 +59,7 @@ SELECT * FROM tp_member_auth;
   FROM 
     tp_member m LEFT JOIN tp_member_auth a ON m.memberId = a.memberId
   WHERE
-    m.memberId = 'qwer';
+    m.memberId = 'asdf';
 
 -- https://docs.spring.io/spring-security/site/docs/current/reference/html5/#persistent-login-remember-me-schema
 -- 로그인 유지 테이블 spring.io
@@ -70,8 +70,7 @@ create table persistent_logins (
     last_used timestamp not null
 );
 
-SELECT memberId, memberPw, membernickName, memberPhoneNum, regDate from tp_member WHERE memberPhoneNum = '01088076027';
-SELECT memberId, memberPw, membernickName, memberPhoneNum, regDate from tp_member WHERE memberPhoneNum = #{memberPhoneNum};
+
 
 
 

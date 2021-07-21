@@ -5,17 +5,11 @@
   
 <mapper namespace="org.zerock.mapper.member.MemberMapper">
 
-<!-- 
-<select id="findMember" resultType="org.zerock.member.domain.MemberVO">
-	SELECT memberId, memberPw, membernickName, memberPhoneNum, regDate from tp_member WHERE memberPhoneNum = #{memberPhoneNum};
-</select>
- -->
-
 <insert id="insert">
   INSERT INTO tp_member
-  (memberId, memberPw, memberName, membernickName, memberBirth, memberPhoneNum, memberMail, memberAddNum, memberAddCity)
+  (memberId, memberPw, memberName, membernickName, memberBirth, memberPhoneNum, memberMail, memberAddNum, memberAddCity, regDate)
   VALUES
-  (#{memberId}, #{memberPw}, #{memberName}, #{membernickName}, #{memberBirth}, #{memberPhoneNum}, #{memberMail}, #{memberAddNum}, #{memberAddCity})
+  (#{memberId}, #{memberPw}, #{memberName}, #{membernickName}, #{memberBirth}, #{memberPhoneNum}, #{memberMail}, #{memberAddNum}, #{memberAddCity}, NOW())
 </insert>
 
 <insert id="insertAuth">
