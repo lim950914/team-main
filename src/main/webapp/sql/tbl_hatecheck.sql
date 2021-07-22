@@ -10,3 +10,5 @@ CREATE TABLE tbl_hatecheck (
 DESC tbl_hatecheck;
 
 SELECT * FROM tbl_hatecheck;
+
+DROP TABLE tbl_hatecheck;

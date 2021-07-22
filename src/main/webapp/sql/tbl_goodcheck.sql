@@ -10,3 +10,5 @@ CREATE TABLE tbl_goodcheck (
 DESC tbl_goodcheck;
 
 SELECT * FROM tbl_goodcheck;
+
+DROP TABLE tbl_goodcheck;
