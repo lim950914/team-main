@@ -241,7 +241,7 @@ $(document).ready(function(){
    }
    
     table,td,th,textarea {
-       border : 1px solid #FDFEFE;
+       border : 1px solid #000000;
     }
     table td {
        width : 50%;
@@ -306,9 +306,11 @@ $(document).ready(function(){
    
 
 <div class="container">
-  <section id="container">
-  
-   <div class="container">
+	<section id="container">
+		<div class="container">
+   			<!-- 
+   			 <p class="text-left ml-5">상품 카테고리 > ${category.category_main } > ${category.category_sub }</p>
+   			 -->
             <table>
                <colgroup>
                    <col width="20%"/>
@@ -394,14 +396,11 @@ $(document).ready(function(){
                      <c:if test="${product.product_status == 1 }">
                         <p>판매가 종료되었습니다.</p>
                      </c:if>
-                     
-                     
-                     
                      </div>
                   </td>
                </tr>
                
-               
+               <!--상품 왼쪽아래 부가정보  -->
                   <!--이미지리스트썸네일  -->
 
                <tr style="height: 52px;">

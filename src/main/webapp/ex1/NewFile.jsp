@@ -1,303 +1,472 @@
-<%@ page contentType="text/html; charset=UTF-8"%>
-<%@ page import="java.util.*"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
-<%
-	request.setCharacterEncoding("utf-8");
-%>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+<!-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> -->
 
-<%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp"%>
+<script>
+var appRoot = '${root }';
+var productSeq = '${product.product_seq}';
+var userSeq = '${authUser.user_seq}';
+</script>
+<script>
+	$(document)
+			.ready(
+					function() {
 
-<title>Insert title here</title>
-</head>
-<body>
-	<div class="container">
-		<div style="border: 1px solid #ececec; margin-top: 30px;" class="xans-element- xans-product xans-product-detail ">
-			<!-- 이미지 영역 -->
-			<div class="xans-element- xans-product xans-product-image imgArea ">
-				<div class="keyImg">
-					<img
-						src="//jellychu.kr/web/product/big/201905/0c4aeae23cb1bb30bc59b1fad675d306.gif"
-						alt=""> &nbsp;
-				</div>
-			</div>
-			<!-- //이미지 영역 -->
-			<!-- 상세정보 내역 -->
-			<div class="infoArea">
-				<h3>하트 포켓 케이스 <span> </span> <span class="displaynone">(해외배송가능상품)</span></h3>
+						/*밑의 이미지를 호버하면 main이미지가 바뀌는 js */
+						/*일단 아래 섬네일에서 호버된걸 선택  */
+						$(".hoveredImage").hover(function() {
 
+							/* 호버된 이미지의 src값  */
+							var hovered = $(this).attr("src");
+							/* 왼쪽위의 주소를 변경 */
+							$("#productMainImage").attr("src", hovered);
+						})
 
-
-				<div style="padding-top: 10px; padding-bottom: 10px;"
-					class="xans-element- xans-product xans-product-action ">
-					<a href="#none"
-						onclick="add_wishlist_nologin('/member/login.html');" class=""><img
-						src="/web/upload/dj/s45_but_gowishlist.gif"></a>
-				</div>
-
-				<div style="padding-top: 10px; clear: both;"
-					class="xans-element- xans-product xans-product-detaildesign">
-					<table border="0" summary="">
-						<tbody>
-							<tr style="height: 8px;" class=" xans-record-">
-								<th scope="row"></th>
-								<td></td>
-							</tr>
-							<tr class=" xans-record-">
-								<th scope="row"><span
-									style="font-size: 12px; color: #555555;"
-									data-i18n="PRODUCT.PRD_INFO_PRODUCT_CUSTOM">custom</span></th>
-								<td><span style="font-size: 12px; color: #555555;"><span
-										id="span_product_price_custom"><strike>15,000won</strike></span></span></td>
-							</tr>
-							<tr class=" xans-record-">
-								<th scope="row"><span
-									style="font-size: 12px; color: #222222; font-weight: bold;"
-									data-i18n="PRODUCT.PRD_INFO_PRODUCT_PRICE">price</span></th>
-								<td><span
-									style="font-size: 12px; color: #222222; font-weight: bold;"><strong
-										id="span_product_price_text">11,000 won</strong><input
-										id="product_price" name="product_price" value="" type="hidden"></span></td>
-							</tr>
-							<tr class=" xans-record-">
-								<th scope="row"><span
-									style="font-size: 12px; color: #555555;"
-									data-i18n="PRODUCT.PRD_INFO_MILEAGE_VALUE">save</span></th>
-								<td><span style="font-size: 12px; color: #555555;"><span
-										id="span_mileage_text">110원 (1%)</span></span></td>
-							</tr>
-
-						</tbody>
-					</table>
-				</div>
-
-				<table border="0" summary="">
-					<caption>SNS</caption>
-					<tbody>
-						<tr class="">
-							<th scope="row" style="padding-top: 15px;"><font
-								color="#111111">SNS</font></th>
-							<td class="social" style="padding-top: 9px;"><img
-								src="/web/upload/72075174857be746507801.jpg"
-								onclick="SnsLinkAction('facebook',3658);" alt=""> <img
-								src="/web/upload/28974594857be746507763.jpg"
-								onclick="SnsLinkAction('twitter',3658);" alt=""></td>
-						</tr>
-					</tbody>
-				</table>
-				<div id="zoom_wrap">
-					<p class="image_zoom_large" style="display: none;">
-						<span class="image_zoom_large_relative"><img
-							id="zoom_image" alt="확대 이미지"></span>
-					</p>
-				</div>
-
-				<p class="displaynone">
-					<img
-						src="http://img.echosting.cafe24.com/design/skin/default/product/txt_naver.gif"
-						alt="개인결제창을 통한 결제 시 네이버 마일리지 적립 및 사용이 가능합니다.">
-				</p>
-				<!-- //상세정보 내역 -->
-
-				<table border="0" summary="">
-					<caption>상품 옵션</caption>
-					<tbody
-						class="xans-element- xans-product xans-product-option xans-record-">
-						<!-- 참고 : 뉴상품관리 전용 변수가 포함되어 있습니다. 뉴상품관리 이외의 곳에서 사용하면 일부 변수가 정상동작하지 않을 수 있습니다. -->
-						<!-- //참고 -->
-						<tr
-							class="xans-element- xans-product xans-product-option xans-record-">
-							<th scope="row">기종 선택</th>
-							<td><select option_product_no="3658"
-								option_select_element="ec-option-select-finder"
-								option_sort_no="1" option_type="T" item_listing_type="S"
-								option_title="기종 선택" product_type="product_option"
-								product_option_area="product_option_3658_0" name="option1"
-								id="product_option_id1" class="ProductOption0"
-								option_style="select" required="true"><option value="*"
-										selected="" link_image="">- [필수] 옵션을 선택해 주세요 -</option>
-									<option value="**" disabled="" link_image="">-------------------</option>
-									<option value="아이폰 6/6s" link_image="">아이폰 6/6s</option>
-									<option value="아이폰 6+/6+s" link_image="">아이폰 6+/6+s</option>
-									<option value="아이폰 7/8" link_image="">아이폰 7/8</option>
-									<option value="아이폰 x/xs" link_image="">아이폰 x/xs</option>
-									<option value="아이폰 xs max" link_image="">아이폰 xs max</option></select></td>
-						</tr>
-						<tr
-							class="xans-element- xans-product xans-product-option xans-record-">
-							<th scope="row">옵션 선택</th>
-							<td><select option_product_no="3658"
-								option_select_element="ec-option-select-finder"
-								option_sort_no="2" option_type="T" item_listing_type="S"
-								option_title="옵션 선택" product_type="product_option"
-								product_option_area="product_option_3658_0" name="option2"
-								id="product_option_id2" class="ProductOption0"
-								option_style="select" required="true"><option value="*"
-										selected="" link_image="">- [필수] 옵션을 선택해 주세요 -</option>
-									<option value="**" disabled="" link_image="">-------------------</option></select></td>
-						</tr>
-					</tbody>
-				</table>
-				<!-- 참고 : 뉴상품관리 전용 변수가 포함되어 있습니다. 뉴상품관리 이외의 곳에서 사용하면 일부 변수가 정상동작하지 않을 수 있습니다. -->
-				<p class="info ">
-					(최소주문수량 1개 이상<span class="displaynone"> / 최대주문수량 0개 이하</span>)
-				</p>
-				<!-- //참고 -->
-
-				<!-- 참고 : 뉴상품관리 전용 모듈입니다. 뉴상품관리 이외의 곳에서 사용하면 정상동작하지 않습니다. -->
-				<!-- //참고 -->
-
-				<!-- 참고 : 뉴상품관리 전용 모듈입니다. 뉴상품관리 이외의 곳에서 사용하면 정상동작하지 않습니다. -->
-				<!-- //참고 -->
-
-				<!-- 참고 : 뉴상품관리 전용 변수가 포함되어 있습니다. 뉴상품관리 이외의 곳에서 사용하면 일부 변수가 정상동작하지 않을 수 있습니다. -->
-				<div id="totalProducts" class="">
-					<p class="info displaynone">
-						<img
-							src="http://img.echosting.cafe24.com/design/skin/default/product/ico_information.gif"
-							alt=""> 수량을 선택해주세요.
-					</p>
-					<p class="info ">
-						<img
-							src="http://img.echosting.cafe24.com/design/skin/default/product/ico_information.gif"
-							alt=""> 위 옵션선택 박스를 선택하시면 아래에 상품이 추가됩니다.
-					</p>
-					<table border="1" summary="">
-						<caption>상품 목록</caption>
-						<colgroup>
-							<col style="width: 202px;">
-							<col style="width: 85px;">
-							<col style="width: 85px;">
-						</colgroup>
-						<thead>
-							<tr>
-								<th scope="col">상품명</th>
-								<th scope="col">상품수</th>
-								<th scope="col">가격</th>
-							</tr>
-						</thead>
-						<tbody class="displaynone">
-							<tr>
-								<td>하트 포켓 케이스</td>
-								<td><span class="quantity"> <input id="quantity"
-										name="quantity_name" style="" value="0" type="text"> <a
-										href="#none"><img
-											src="http://img.echosting.cafe24.com/design/skin/default/product/btn_count_up.gif"
-											alt="수량증가" class="QuantityUp up"></a> <a href="#none"><img
-											src="http://img.echosting.cafe24.com/design/skin/default/product/btn_count_down.gif"
-											alt="수량감소" class="QuantityDown down"></a>
-								</span></td>
-								<td class="right"><span class="quantity_price">11000</span>
-									<span class="mileage ">(<img
-										src="//img.echosting.cafe24.com/design/skin/admin/ko_KR/ico_product_point.gif">
-										&nbsp;<span class="mileage_price">110</span>)
-								</span></td>
-							</tr>
-						</tbody>
-						<!-- 참고 : 옵션선택 또는 세트상품 선택시 상품이 추가되는 영역입니다. 쇼핑몰 화면에는 아래와 같은 마크업구조로 표시됩니다. 삭제시 기능이 정상동작 하지 않습니다.-->
-						<tbody>
-							<!-- tr>
-                        <td>
-                            <p class="product">
-                                $상품명<br />
-                                <span>$옵션</span>
-                            </p>
-                        </td>
-                        <td>
-                            <span class="quantity">
-                                <input type="text" class="quantity_opt" />
-                                &nbsp;<a href="#none"><img src="http://img.echosting.cafe24.com/design/skin/default/product/btn_count_up.gif" alt="수량증가" class="up" /></a>
-                                <a href="#none"><img src="http://img.echosting.cafe24.com/design/skin/default/product/btn_count_down.gif" alt="수량감소" class="down" /></a>
-                            </span>
-                            <a href="#none"><img src="http://img.echosting.cafe24.com/design/skin/default/product/btn_price_delete.gif" alt="삭제" class="option_box_del" /></a>
-                        </td>
-                        <td class="right">
-                            <span>$가격</span>
-                            <span class="mileage">(<img src="http://img.echosting.cafe24.com/design/skin/admin/ko_KR/ico_pay_point.gif" /> &nbsp;<span class="mileage_price">$적립금</span>)</span>
-                        </td>
-                    </tr -->
-						</tbody>
-						<!-- //참고 -->
-						<tfoot>
-							<tr>
-								<td colspan="3"><strong>총 상품금액</strong>(수량) : <span
-									class="total"><strong><em>0</em></strong> (0개)</span></td>
-							</tr>
-						</tfoot>
-					</table>
-				</div>
-				<!-- //참고 -->
-
-				<!-- 참고 : 뉴상품관리 전용 변수가 포함되어 있습니다. 뉴상품관리 이외의 곳에서 사용하면 일부 변수가 정상동작하지 않을 수 있습니다. -->
-				<div class="xans-element- xans-product xans-product-action ">
-					<div class="btnArea">
-						<li class="dj_btn_buy"><a href="#none" class="first "
-							onclick="product_submit(1, '/exec/front/order/basket/', this)">바로구매하기</a></li>
-						<li class="dj_btn_cart"><a id="cartBtn" href="#none" class=""
-							onclick="product_submit(2, '/exec/front/order/basket/', this)">장바구니담기</a></li>
-						<span class="displaynone"><img
-							src="http://img.echosting.cafe24.com/design/skin/default/product/btn_sold_out.gif"
-							alt="SOLD OUT"></span>
-					</div>
-					<!-- Mobon Shop Log Tracker v3.1 start -->
-					<script type="text/javascript">
-					<!--
-						function mobRfShop() {
-							var sh = new EN();
-							// [상품상세정보]
-							sh
-									.setData("sc",
-											"d98912a57a3ed844c1eb3707f34aa2ff");
-							sh.setData("userid", "phonecloset2");
-							sh.setData("pcode", "3658");
-							sh.setData("price", "11000");
-							sh
-									.setData(
-											"pnm",
-											encodeURIComponent(encodeURIComponent("하트 포켓 케이스")));
-							sh
-									.setData(
-											"img",
-											encodeURIComponent("//jellychu.kr/web/product/medium/201905/ba48a7fbdf42119d9327992f8ae370c6.gif"));
-							sh
-									.setData(
-											"cate1",
-											encodeURIComponent(encodeURIComponent(sh
-													.getParam(location.href,
-															"cate_no"))));
-							sh.setSSL(true);
-							sh.sendRfShop();
-
-							// 장바구니 버튼 클릭 시 호출 메소드(사용하지 않는 경우 삭제)
-							document.getElementById("cartBtn").onmouseup = sendCart;
-							function sendCart() {
-								sh.sendCart();
-							}
-							// 찜,Wish 버튼 클릭 시 호출 메소드(사용하지 않는 경우 삭제)
-							document.getElementById("wishBtn").onmouseup = sendWish;
-							function sendWish() {
-								sh.sendWish();
+						/*모달창-메세지넘어왔을때나오게함  */
+						var message = '${message}';
+						checkModal(message);
+						history.replaceState({}, null, null);//뒤로가기로왔을시에없앰?
+						function checkModal(message) {
+							if (message && history.state == null) {
+								$("#myModal .modal-body p").html(message)
+								$("#myModal").modal("show");
 							}
 						}
-					//-->
-					</script>
-					<script src="https://cdn.megadata.co.kr/js/enliple_min2.js"
-						defer="defer" onload="mobRfShop()"></script>
-					<!-- Mobon Shop Log Tracker v3.1 end  -->
-					<!-- 네이버 체크아웃 구매 버튼 -->
-					<div id="NaverChk_Button"></div>
-					<!-- //네이버 체크아웃 구매 버튼 -->
+
+						/*토탈가격 구하는 함수*/
+						function totalp() {
+							var sum = 0;
+							$(".po_groupprice").each(function() {
+								sum += Number($(this).val());
+							});
+							$(".total_price").val(sum + "원");
+						}
+
+						/* 옵션 클릭시 추가하기 */
+						$("#optionSelectBox")
+								.on(
+										'change',
+										function() {
+											/* 선택된 옵션 val을 가져옴=productOption_seq */
+											var poSeq = $(this).val();
+											var po_name = $(this).find(
+													"option:selected").data(
+													"name");
+											var po_quantity = $(this).find(
+													"option:selected").data(
+													"quantity");
+											var po_price = $(this).find(
+													"option:selected").data(
+													"price");
+
+											/* 옵션재고가 0이면 추가안하게끔 */
+											if (po_quantity == 0) {
+												return;
+											}
+
+											/* 이전 optionContainerNumber가 있는가 선택 */
+											var exist = $('input[name="order_poseq"][value='
+													+ poSeq + ']').length;
+											if (exist == 0) {
+												$("#optionBox")
+														.append(
+																'<div id="optionContainer"'+poSeq+'>'
+																		+ '<input style="width:130px;" class="border-0" type="text" name="order_poname" value="'+po_name+'" readonly/>'
+																		+ '<input style="width:70px; text-align:right;" class="border-0 po_price" type="number" name="order_poprice" value="'+po_price+'" readonly/>'
+																		+ "원"
+																		+ '<input type="number" name="order_poseq" value="'+poSeq+'"hidden/>'
+																		+ '<input type="number" name="maxPoQuantity" value="'+po_quantity+'"hidden/>'
+																		+ '<span class="mx-3"></span>'
+																		+ '<button class="minus_btn optionBtn" type="button"><i class="fas fa-minus"></i></button>'
+																		+ '<input style="width:50px;" class="amount" type="number" max="'+po_quantity+'" min="1" value="1" name="order_quantity"/>'
+																		+ '<button class="plus_btn optionBtn" type="button"><i class="fas fa-plus"></i></button>'
+																		+ '<button class="removeOption_btn optionBtn" type="button">제거</button>'
+																		+ '<input style="width:80px; text-align:right;" class="border-0 po_groupprice" type="number" name="" value="'+po_price+'" readonly/>'
+																		+ "원"
+																		+ '</div>');
+
+												totalp();
+											}
+										});
+						/* 수동으로 개수를 넣으면 가격업데이트 */
+						$(document)
+								.on(
+										'change',
+										"input[name=order_quantity]",
+										function() {
+
+											var amou = $(this).val();
+											var maxLimit = $(this)
+													.siblings(
+															"input[name=maxPoQuantity]")
+													.val();
+											Number(amou);
+											Number(maxLimit);
+											if (amou > maxLimit) {
+												amou = maxLimit;
+												$(this).val(amou);
+											}
+											var poPrice = $(this).siblings(
+													".po_price").val();
+											var pri = amou * poPrice;
+											$(this).siblings(".po_groupprice")
+													.val(pri);
+											totalp();
+										});
+
+						/* 클릭시 옵션제거=동적태그를 가져오려면 아래처럼생성해야함 */
+						$(document).on('click', ".removeOption_btn",
+								function() {
+									$(this).parent().remove();
+									totalp();
+								});
+
+						/* 클릭시 수량증감(+가격도변경) */
+						$(document)
+								.on(
+										'click',
+										".plus_btn",
+										function() {
+											var amou = $(this).siblings(
+													".amount").val();
+											var maxLimit = $(this)
+													.siblings(
+															"input[name=maxPoQuantity]")
+													.val();
+											var amouc = parseInt(amou);
+											if (amouc < maxLimit) {
+												amouc += 1;
+											}
+											$(this).siblings(".amount").val(
+													amouc);
+											/* 가격도 수정 */
+											var poPrice = $(this).siblings(
+													".po_price").val();
+											var pri = amouc * poPrice;
+											$(this).siblings(".po_groupprice")
+													.val(pri);
+											totalp();
+										});
+						$(document).on(
+								'click',
+								".minus_btn",
+								function() {
+									var amou = $(this).siblings(".amount")
+											.val();
+									if (amou > 1) {
+										var amouc = parseInt(amou) - 1;
+										$(this).siblings(".amount").val(amouc);
+										/* 가격도 수정 */
+										var poPrice = $(this).siblings(
+												".po_price").val();
+										var pri = amouc * poPrice;
+										$(this).siblings(".po_groupprice").val(
+												pri);
+									}
+									totalp();
+								});
+
+						/* 장바구니/구매 버튼 */
+						$("#order_btn").click(function() {
+							if ("${authUser}" == "") {
+								$("#myModal .modal-body p").html("로그인 해야합니다.");
+								$("#myModal").modal("show");
+								return;
+							}
+							$("#checkCartOrder").val("order");
+
+							$("#order_form").submit();
+						});
+						$("#cart_btn").click(function() {
+							if ("${authUser}" == "") {
+								$("#myModal .modal-body p").html("로그인 해야합니다.");
+								$("#myModal").modal("show");
+								return;
+							}
+							$("#checkCartOrder").val("cart");
+
+							$("#order_form").submit();
+						});
+
+						/* 하트 누르면 */
+						$("#like").click(
+								function() {
+									if (userSeq == '') {
+										$("#myModal .modal-body p").html(
+												"좋아요를 누르려면 로그인해야합니다")
+										$("#myModal").modal("show");
+										return
+										
+
+									}
+									$.ajax({
+										type : "post",
+										url : appRoot + "/product/like",
+										contentType : "application/json",
+										dataType : "JSON",
+										data : '{"product_seq":' + productSeq
+												+ ',"user_seq":' + userSeq
+												+ '}',
+										success : function(data, status, xhr) {
+											$("#totalLike").text(data);
+										},
+										error : function() {
+										}
+									});
+								});
+
+						/* 하트애니메이션 */
+						$(function() {
+							$(".HeartAnimation").click(function() {
+								if (userSeq == '') {
+									return
+									
+
+								}
+								if ($(this).hasClass("animate2") === true) {
+									$(this).removeClass("animate2");
+									$(this).toggleClass("animate");
+								}
+								$(this).toggleClass("animate");
+							});
+						});
+						/* 이미 눌렀으면 애니메이션 자동실행 */
+						var check = $
+						{
+							produckLikeCheck
+						}
+						if (check != 0) {
+							$(".HeartAnimation").addClass("animate2");
+						}
+
+					});
+</script>
+
+<style>
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button
+	{
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input:focus {
+	outline: none;
+}
+
+textarea:focus {
+	outline: none;
+}
+
+#like {
+	cursor: pointer;
+}
+
+.btn_add {
+	color: #fff;
+	font-size: 15px;
+	border: none;
+	background: #1e263c;
+	padding: 0px 30px;
+	margin: 0 0px;
+	line-height: 45px;
+	float: right;
+	border-radius: 3px;
+}
+
+table {
+	width: 85%;
+	height: 800px;
+	margin-left: 4%;
+}
+
+table, td, th, textarea {
+	border: 1px solid #000000;
+}
+
+table td {
+	width: 50%;
+	text-align: center;
+}
+
+.tableLeftUp {
+	height: 540px;
+}
+
+#productMainImage {
+	width: 420px;
+	height: 480px;
+}
+
+#container {
+	clear: both;
+	position: relative;
+	margin: 50px auto 0px;
+	padding: 0 0 50px 0;
+	width: 1200px;
+	z-index: 1;
+}
+
+/* 하트애니메이션 <div class="HeartAnimation"></div>*/
+.HeartAnimation {
+   padding-top: 2em;
+   background-image:
+      url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/66955/web_heart_animation.png');
+   background-repeat: no-repeat;
+   background-size: 2900%;
+   background-position: left;
+   height: 80px;
+   width: 80px;
+   margin: 0 auto;
+   cursor: pointer;
+   display:block;
+}
+
+.animate {
+	animation: heart-burst .8s steps(28) forwards;
+}
+
+.animate2 {
+	animation: heart-burst .0s steps(28) forwards;
+}
+
+@
+keyframes heart-burst { 0% {
+	background-position: left
+}
+
+100
+%
+{
+background-position
+:
+right
+}
+}
+.optionBtn {
+	border-radius: 3px;
+	border: none;
+	background: #fff;
+}
+</style>
 
 
+<title>상품페이지</title>
+</head>
+<body>
+
+	<div class="container">
+		<section id="container">
+			<div class="container">
+				<!--  <p class="text-left ml-5">상품 카테고리 > ${category.category_main } > ${category.category_sub }</p> -->
+				<table>
+					<tr>
+						<!-- 상품정보 왼쪽위 이미지  -->
+						<c:set var="visibility" value="100%"></c:set>
+						<c:if test="${product.product_status == 1 }">
+							<c:set var="visibility" value="30%"></c:set>
+						</c:if>
+						<td colspan="2" class="tableLeftUp">
+							<div style="position: relative;">
+								<img style="opacity : ${visibility}"  id="productMainImage" class="card-img-top" src="${appRoot }/resources/logo/elonmask.png" alt="제품이미지">
+								<!-- 이미지 받아오기 <img style="opacity : ${visibility}" id="productMainImage" class="card-img-top" src="${root }/resources/upload/${productImgList[0] }" alt="제품이미지"> -->
+								<div style="position: absolute; top: 45%; left: 40%">
+									<c:if test="${product.product_status == 1 }">
+										<h5>판매 종료</h5>
+									</c:if>
+								</div>
+							</div>
+						</td>
+						
+						<!-- 상품정보 오른쪽 항목 -->
+						<td class="align-top">
+							<div class="m-5">
+								<h4 class="text-left"><c:out value="가나다라${product.product_name }"></c:out></h4>
+								<!-- 찜기능 클릭시 상품 정보가 mypage로 전송되게하기 -->
+									<span style="font-size: 30px;" class="container d-flex align-items-center justify-content-end">
+										<span id="like">
+											<span class="HeartAnimation"></span>
+										</span>
+									</span>
+								<hr>
+								<fmt:formatNumber value="${product.product_price }" type="number" var="price"></fmt:formatNumber>
+								<p class="text-left"> <c:out value="22,000${price }"></c:out>원</p>
+								<fmt:formatNumber value="${product.product_quantity }" type="number" var="quantity"></fmt:formatNumber>
+								<p class="text-left">총<c:out value="8${quantity }"></c:out>개 남음</p>
+								<!-- 판매자 삭제<p class="text-right">판매자 : <c:out value="${ product.user_nickname }"></c:out></p> -->
+								<hr>
+							<select id="optionSelectBox" style="width:280px; margin-left: 6px;" class="form-control">
+							<c:choose>
+								<c:when test="${product.product_status == 0}">
+									<option>===옵션을 선택하세요===</option>
+										<c:forEach items="${ poList}" var="poLi" >
+											<option value="${poLi.productOption_seq }" data-name="${poLi.po_name}" data-price="${poLi.po_price}" data-quantity="${poLi.po_quantity}"> ${poLi.po_name} (${poLi.po_price} 원)  / (재고 : ${poLi.po_quantity}) </option>
+										</c:forEach>
+								</c:when>
+								<c:otherwise>
+									<option>===판매가 종료된 상품입니다.===</option>
+								</c:otherwise>
+							</c:choose>
+							</select>
+							<hr>
+							<!-- 삭제 예정 -->
+							<p class="text-left">상품설명 </p>
+							<textarea style="resize: none; border: none" rows="15" cols="50" readonly><c:out value="${product.product_info }"></c:out></textarea>
+							
+							</div>
+						</td>
+				</table>
+			</div>
+		</section>
+	</div>
+
+
+	<!--모달창시작-->
+	<div id="myModal" class="modal" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">알림</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
 				</div>
-				<!-- //참고 -->
+				<div class="modal-body">
+					<p>처리가완료되었습니다</p>
+				</div>
+				<div class="modal-footer">
+					<button id="modalClose" type="button" class="btn btn-secondary"
+						data-dismiss="modal">Close</button>
+				</div>
 			</div>
 		</div>
 	</div>
+
+	<!--모달창끝-->
 </body>
 </html>
+
+
+
+
+
+
+
+
