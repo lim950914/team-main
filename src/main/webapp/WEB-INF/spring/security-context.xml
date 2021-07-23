@@ -7,8 +7,6 @@
 
 <bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 
-<bean id="customUserDetailsService" class="org.zerock.security.CustomUserDetailsService"></bean>
-
 <security:http>
 	<security:http-basic/>
 	<security:form-login login-page="/member/login" default-target-url="/main/main"/>
