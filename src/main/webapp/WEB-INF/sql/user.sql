@@ -1,5 +1,5 @@
 CREATE TABLE tbl_user (
-   user_seq INT(11) PRIMARY KEY AUTO_INCREMENT,
+	user_seq INT(11) PRIMARY KEY AUTO_INCREMENT,
     user_id VARCHAR(50) NOT NULL,
     user_name VARCHAR(50) NOT NULL,
     user_password VARCHAR(100) NOT NULL,
@@ -18,7 +18,8 @@ DESC tbl_user;
 
 SELECT * FROM tbl_user;
 
-ALTER TABLE tbl_user ADD user_nickname VARCHAR(50) NOT NULL;
+ALTER TABLE tbl_user CHANGE COLUMN user_addresscodd user_addresscode INT(11) NOT NULL;
 
-DROP TABLE tbl_user;
+ALTER TABLE tbl_user MODIFY COLUMN user_password VARCHAR(100) NOT NULL;
 
+ALTER TABLE tbl_order CHANGE COLUMN order_useseq order_userseq INT(11) NOT NULL;

@@ -1,4 +1,4 @@
-CREATE TABLE tbl_freeboard (
+  CREATE TABLE tbl_freeboard (
 	free_seq INT(11) PRIMARY KEY AUTO_INCREMENT,
     free_title VARCHAR(50) NOT NULL,
     free_content VARCHAR(2000) NOT NULL,
