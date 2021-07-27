@@ -375,8 +375,8 @@ $(document).ready(function(){
 								<hr>
 								<button id="cart_btn" class="btn_add" type="button"> 장바구니</button>
 								<button style="background:#4a4a4a;" id="order_btn" class="btn_add mx-2" type="button"> 구매</button>
-							
-								<!-- 상품설명 텍스트 에어리어
+								
+								<!-- 상품설명 텍스트에어리어
 								<p class="text-left">상품설명 </p>
 								<textarea style="resize: none; border: none" rows="15" cols="50" readonly><c:out value="${product.product_info }"></c:out></textarea>
 								 -->
@@ -446,8 +446,18 @@ $(document).ready(function(){
 							</form>
 						</td>
 					</tr>
+					
 					<tr style="height: 70px;">
 						<td colspan="3">
+						</td>
+					</tr>					
+				</table>
+				
+				<div style="text-align: center;">
+					<h1>이미지 자리</h1>
+				</div>
+					
+					<hr>				
 							<div class="row">
 								<div class="ml-3"></div>
 								<form action="${appRoot }/product/list">
@@ -462,11 +472,6 @@ $(document).ready(function(){
 									<button style="background:#4a4a4a;" class="btn_add mx-4"> 목록으로</button>
 								</form>
 								</div>
-								
-						</td>
-					</tr>					
-				
-				</table>
 	</div>
 
    </section>

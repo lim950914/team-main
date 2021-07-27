@@ -238,12 +238,7 @@ table.type05 td {
 						</tr>
 						<tr>
 							<th scope="row">상품 설명 *</th>
-							<td>
-								상품설명 이미지 업로드 코드 작성필요함
-							</td>
-						<!-- 
-							<td><textarea class="inputTop form-control" style="resize: none;" id="product_info" name="product_info" rows="15" cols="50">${product.product_info }</textarea></td>
-						 -->
+							<td><textarea class="inputTop form-control" style="resize: none;" id="product_info" name="product_info" rows="15" cols="20">${product.product_info }</textarea></td>
 						</tr>
 					</tbody>
 				</table>
