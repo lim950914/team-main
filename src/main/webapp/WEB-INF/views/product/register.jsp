@@ -238,7 +238,7 @@ table.type05 td {
 						</tr>
 						<tr>
 							<th scope="row">상품 설명 *</th>
-							<td><textarea class="inputTop form-control" style="resize: none;" id="product_info" name="product_info" rows="15" cols="20">${product.product_info }</textarea></td>
+							<td><textarea class="inputTop form-control" style="resize: none;" id="product_info" name="product_info" rows="15" cols="50">${product.product_info }</textarea></td>
 						</tr>
 					</tbody>
 				</table>
