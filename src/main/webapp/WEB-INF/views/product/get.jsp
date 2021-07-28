@@ -449,7 +449,7 @@ $(document).ready(function(){
                      </form>
                   </c:if>
                               
-                           </div>
+                         </div>
                   </td>
                </tr>
                <tr style="height: 52px;">
