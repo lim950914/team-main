@@ -471,11 +471,6 @@ $(document).ready(function(){
                      </form>
                   </td>
                </tr>
-               
-               <tr style="height: 70px;">
-                  <td colspan="3">
-                  </td>
-               </tr>               
             </table>
             
             <div style="text-align: center;">
