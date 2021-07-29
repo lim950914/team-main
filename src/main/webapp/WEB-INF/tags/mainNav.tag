@@ -278,24 +278,29 @@ input, select, textarea {
 
 <div id="header_bg">
    <div class="xans-element- xans-layout xans-layout-statelogoff ">
-      <a href="${appRoot }/user/login">Log-in</a>
-      <a href="${appRoot }/user/userRegister">Join</a>
       <a href="${appRoot }/qa/list">Q&A</a>
-       <a href="${appRoot }/rev/list">Review</a>
+      <a href="${appRoot }/rev/list">Review</a>
       <a href="${appRoot }/user/cart">Cart</a>
       <a href="${appRoot }/user/userRead?user_id=${authUser.user_id}">Mypage</a>
-   </span>
+    <c:choose>
+   <c:when test="${authUser == null}">
+      <a href="${appRoot }/user/login">Log-in</a>
+      <a href="${appRoot }/user/userRegister">Join</a>
+    </c:when>
+    <c:otherwise>
+       <a href="${appRoot }/user/logout">Log-out</a>
+       <a href="${appRoot }/user/userOrderList" >Order</a>
+    </c:otherwise>
+    </c:choose>
    </div>
          
 </div>
 
 <div id="header">                  
       <div class="logo"><a href="${appRoot }/main/mainPage"><img src="${appRoot }/resources/logo/logo.jpg" alt="로고"></a></div>
-   </div>
 </div>
 
 <div class="xans-element- xans-layout xans-layout-category">
     <div class="postion">
    </div>
 </div>
-

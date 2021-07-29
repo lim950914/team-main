@@ -136,7 +136,9 @@ public class ProductController {
 			total += Integer.parseInt(po_q);
 		}
 		product.setProduct_quantity(total);
-
+		
+/* 기존 파일 업로드 주석
+ 
 		// 파일 올리는 방법 복사
 		// 파일이 업로드 될 경로 설정
 		String saveDir = request.getSession().getServletContext().getRealPath("/resources/upload");
@@ -171,8 +173,7 @@ public class ProductController {
 				reNames.add(reName);
 			}
 		}
-
-		/* 파일이 하나도 첨부되어있지 않을때 다시돌려보냄 */
+		// 파일이 하나도 첨부되어있지 않을때 다시돌려보냄
 		if (reNames.size() == 0) {
 			rttr.addFlashAttribute("product", product);
 			rttr.addFlashAttribute("message", "상품이미지를 한 개이상 등록해야합니다.");
@@ -184,8 +185,10 @@ public class ProductController {
 		String filenames = String.join(",", reNames);
 		product.setProduct_filename(filenames);
 		System.out.println(filenames);
-		/* System.out.println(product.getProduct_filename()); */
-
+		// System.out.println(product.getProduct_filename());
+		 * 
+*/
+		
 		/*
 		 * 다시 list로 얻는 방법 List<String> fileNamesList =
 		 * Arrays.asList(filenames.split(",")); System.out.println(fileNamesList);

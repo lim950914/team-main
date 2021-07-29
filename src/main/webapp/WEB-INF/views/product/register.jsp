@@ -276,7 +276,8 @@ table.type05 td {
 					<div class="imgs_wrap">
 						<img id="img"/>
 					</div>
-				
+					
+					<!-- 기존 파일 업로드 관련 script
 					<script>
 					  
 					  $("#input_imgs").on("change", handleImgFileSelect);
@@ -315,6 +316,8 @@ table.type05 td {
 							});
 					 }
 				 	</script>
+				 	-->
+				 	
 				<!--이미지첨부끝 -->
 				
 				<button id="btn_submit" class="btn_add">상품 등록</button>
