@@ -270,6 +270,9 @@ table.type05 td {
 				
 				<!--이미지첨부시작  -->
 					
+					
+					<!-- 기존 파일 업로드 관련 div script -->
+					
 					<div class = "input-group-text">
 						 <input type="file" name="upload" id="input_imgs" multiple="multiple" accept="image/*"/>
 					</div>	
@@ -277,7 +280,6 @@ table.type05 td {
 						<img id="img"/>
 					</div>
 					
-					<!-- 기존 파일 업로드 관련 script
 					<script>
 					  
 					  $("#input_imgs").on("change", handleImgFileSelect);
@@ -316,14 +318,12 @@ table.type05 td {
 							});
 					 }
 				 	</script>
-				 	-->
 				 	
 				<!--이미지첨부끝 -->
 				
 				<button id="btn_submit" class="btn_add">상품 등록</button>
 				
 			</form>
-
 	
   </section>
 </div>
