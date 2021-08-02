@@ -23,6 +23,7 @@ import org.zerock.user.mapper.UserMapper;
 
 import lombok.AllArgsConstructor;
 import lombok.Setter;
+import lombok.extern.log4j.Log4j;
 import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.profiles.ProfileFile;
@@ -32,9 +33,12 @@ import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 
 @Service
 @AllArgsConstructor
+@Log4j
 public class ProductServiceImpl implements ProductService {
-
+	
+	@Setter(onMethod_ = @Autowired)
 	private ProductMapper mapper;
+	
 	private UserMapper userMapper;
 	private S3Client s3; // 2021.08.02
 	private String bucketName; // 2021.08.02
@@ -42,6 +46,8 @@ public class ProductServiceImpl implements ProductService {
 
 	@Setter(onMethod_ = @Autowired)
 	private ProFileMapper ProfileMapper;
+	
+	
 
 	// 2021.08.02 aws s3관련
 	public ProductServiceImpl() {
@@ -184,7 +190,8 @@ public class ProductServiceImpl implements ProductService {
 	public void register(ProductVO product) {
 		mapper.insert(product);
 	}
-
+	
+	@Transactional
 	@Override // 2021.08.02 s3 파일 업로드
 	public void register(ProductVO product, MultipartFile file) {
 		register(product);
@@ -234,6 +241,7 @@ public class ProductServiceImpl implements ProductService {
 
 	// 상품대표가격받아와서 수정+총재고량 업데이트하는 함수
 	public void updateProductVOOnPriceQuantity(ProductVO pVO) {
+		log.info(pVO);
 		List<ProductOptionVO> poVOList = mapper.getProductOptionList(pVO.getProduct_seq());
 		pVO.setProduct_price(poVOList.get(0).getPo_price());
 

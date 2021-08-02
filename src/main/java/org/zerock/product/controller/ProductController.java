@@ -94,7 +94,7 @@ public class ProductController {
 	@PostMapping("/register")
 	public String register(String[] po_name, String[] po_quantity, String[] po_price, ProductVO product,
 			RedirectAttributes rttr, HttpServletRequest request, @RequestParam("file")MultipartFile file) {
-
+		
 		/* 카테고리가 비어 있을 때 돌려보냄 */
 		if (product.getCategory_seq() == 0) {
 			rttr.addFlashAttribute("product", product);
@@ -148,7 +148,7 @@ public class ProductController {
 		rttr.addFlashAttribute("messageTitle", "등록 성공");
 		rttr.addFlashAttribute("messageBody", product.getProduct_seq() + "번 게시물 등록 되었습니다.");
 		
-/* 기존 파일 업로드 주석
+/*      //기존 파일 업로드 주석
  
 		// 파일 올리는 방법 복사
 		// 파일이 업로드 될 경로 설정
@@ -161,7 +161,7 @@ public class ProductController {
 			dir.mkdirs();
 		}
 		// 파일 업로드
-		// 철수추가 파일 이름 list추가
+		// 파일 이름 list추가
 		List<String> reNames = new ArrayList<String>();
 		for (MultipartFile f : upload) {
 			if (!f.isEmpty()) {
@@ -180,7 +180,6 @@ public class ProductController {
 					e.printStackTrace();
 				}
 
-				// 철수추가
 				reNames.add(reName);
 			}
 		}
@@ -191,7 +190,7 @@ public class ProductController {
 			return "redirect:/product/register";
 		}
 
-		// 철수추가 파일 올린 후에 그 이름을 product에 복사
+		// 파일 올린 후에 그 이름을 product에 복사
 		// list를 string 쉼표구분으로 만들기
 		String filenames = String.join(",", reNames);
 		product.setProduct_filename(filenames);
