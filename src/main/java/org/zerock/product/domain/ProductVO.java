@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 public class ProductVO {
-	//등록시하드코딩컬럼
+	
 	private int product_seq; //물품 시퀀스
 	//업데이트시 수정안되는컬럼
 	private int product_price; //물품 가격

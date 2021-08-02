@@ -270,12 +270,10 @@ table.type05 td {
 				
 				<!--이미지첨부시작  -->
 					
+					<div class="form-group">
+						 <input id="input_imgs" class="form-control" type="file" name="file" accept="image/*" >
+					</div>
 					
-					<!-- 기존 파일 업로드 관련 div script -->
-					
-					<div class = "input-group-text">
-						 <input type="file" name="upload" id="input_imgs" multiple="multiple" accept="image/*"/>
-					</div>	
 					<div class="imgs_wrap">
 						<img id="img"/>
 					</div>

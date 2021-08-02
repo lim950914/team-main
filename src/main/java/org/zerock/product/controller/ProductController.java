@@ -93,7 +93,7 @@ public class ProductController {
 
 	@PostMapping("/register")
 	public String register(String[] po_name, String[] po_quantity, String[] po_price, ProductVO product,
-			RedirectAttributes rttr, MultipartFile[] upload, HttpServletRequest request) {
+			RedirectAttributes rttr, HttpServletRequest request, @RequestParam("file")MultipartFile file) {
 
 		/* 카테고리가 비어 있을 때 돌려보냄 */
 		if (product.getCategory_seq() == 0) {
@@ -136,6 +136,17 @@ public class ProductController {
 			total += Integer.parseInt(po_q);
 		}
 		product.setProduct_quantity(total);
+		
+		// aws s3 파일업로드
+		
+		product.setProduct_filename(file.getOriginalFilename());
+		
+		// service
+		service.register(product, file);
+		
+		rttr.addFlashAttribute("result", product.getProduct_seq());
+		rttr.addFlashAttribute("messageTitle", "등록 성공");
+		rttr.addFlashAttribute("messageBody", product.getProduct_seq() + "번 게시물 등록 되었습니다.");
 		
 /* 기존 파일 업로드 주석
  

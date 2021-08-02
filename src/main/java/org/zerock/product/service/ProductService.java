@@ -2,6 +2,7 @@ package org.zerock.product.service;
 
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
 import org.zerock.product.domain.CategoryVO;
 import org.zerock.product.domain.Criteria;
 import org.zerock.product.domain.OrderVO;
@@ -13,7 +14,9 @@ import org.zerock.product.domain.ProductVO;
 public interface ProductService {
 	
 	public void register(ProductVO product);
-
+	
+	public void register(ProductVO product, MultipartFile file); // 2021.08.02 aws s3관련 추가
+	
 	public void registerReturn(ProductVO product, String[] po_name, String[] po_quantity, String[] po_price);
 	
 	public List<ProductVO> getList(Criteria cri);
