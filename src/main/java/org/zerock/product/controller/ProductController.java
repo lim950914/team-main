@@ -148,7 +148,7 @@ public class ProductController {
 			dir.mkdirs();
 		}
 		// 파일 업로드
-		// 철수추가 파일 이름 list추가
+		// 추가 파일 이름 list추가
 		List<String> reNames = new ArrayList<String>();
 		for (MultipartFile f : upload) {
 			if (!f.isEmpty()) {
@@ -167,7 +167,7 @@ public class ProductController {
 					e.printStackTrace();
 				}
 
-				// 철수추가
+				// 추가
 				reNames.add(reName);
 			}
 		}
@@ -179,7 +179,7 @@ public class ProductController {
 			return "redirect:/product/register";
 		}
 
-		// 철수추가 파일 올린 후에 그 이름을 product에 복사
+		// 추가 파일 올린 후에 그 이름을 product에 복사
 		// list를 string 쉼표구분으로 만들기
 		String filenames = String.join(",", reNames);
 		product.setProduct_filename(filenames);
@@ -383,7 +383,7 @@ public class ProductController {
 			dir.mkdirs();
 		}
 		// 파일 업로드
-		// 철수추가 파일 이름 list추가
+		// 추가 파일 이름 list추가
 		List<String> reNames = new ArrayList<String>();
 
 		for (MultipartFile f : upload) {
@@ -415,7 +415,7 @@ public class ProductController {
 		 * return "/product/modify"; }
 		 */
 
-		// 철수추가 파일 올린 후에 그 이름을 product에 복사
+		// 추가 파일 올린 후에 그 이름을 product에 복사
 		// list를 string 쉼표구분으로 만들기
 		String filenames = String.join(",", reNames);
 		product.setProduct_filename(filenames);
