@@ -369,7 +369,7 @@ $(document).ready(function(){
                      
                      <hr>
                      
-                     	<form id="order_form" action="${appRoot }/product/cart" method="get">
+                        <form id="order_form" action="${appRoot }/product/cart" method="get">
                         <input name="product_seq" value="${product.product_seq }" hidden="hidden"/>
                         <input name="order_filename" value="${productImgList[0] }" hidden="hidden"/>
                         <input name="order_productseq" value="${product.product_seq }" hidden="hidden"/>
@@ -385,7 +385,7 @@ $(document).ready(function(){
                         </div>
                      </form>
                      
-                     	<c:if test="${product.product_status != 1 }">
+                        <c:if test="${product.product_status != 1 }">
                         <span style="margin-top: 11px; margin-left: 132px;">결제금액 : </span>
                         <input class="total_price" style="border:none; width: 87px;" value="0" name="order_totalprice" readonly/>
                         </c:if>
@@ -393,12 +393,12 @@ $(document).ready(function(){
                            <p>판매 종료되었습니다.</p>
                         </c:if>
                         <hr>
-	
+   
                      
                         
                         <c:if test="${product.product_status != 1 }">
-	                        <button id="cart_btn" class="btn_add" type="button"> 장바구니</button>
-	                        <button style="background:#4a4a4a;" id="order_btn" class="btn_add mx-2" type="button"> 구매</button>
+                           <button id="cart_btn" class="btn_add" type="button"> 장바구니</button>
+                           <button style="background:#4a4a4a;" id="order_btn" class="btn_add mx-2" type="button"> 구매</button>
                         </c:if>
                         
                         
@@ -416,7 +416,7 @@ $(document).ready(function(){
                               <!--수정버튼(작성자만보이도록)  -->
                               
                              <c:if test="${product.product_status != 1 }">
-                           <c:if test="${product.product_seller eq authUser.user_seq}">
+                           <c:if test="${authUser.user_grade == 0}">
                               <c:url value="/product/modify" var="productModify">
                                  <c:param name="product_seq" value="${product.product_seq }"></c:param>
                                     <c:param name="pageNum" value="${cri.pageNum }"></c:param>
@@ -433,11 +433,10 @@ $(document).ready(function(){
                               </form>
                               </c:if>
                               </c:if>
-
-                              
+                  
                               <!--삭제버튼(작성자만보이도록)-->
                               <c:if test="${product.product_status != 1 }">
-                        	<c:if test="${product.product_seller eq authUser.user_seq}">
+                           <c:if test="${authUser.user_grade == 0}">
                               <c:url value="/product/finish" var="productFinish">
                                  <c:param name="product_seq" value="${product.product_seq }"></c:param>
                                     <c:param name="pageNum" value="${cri.pageNum }"></c:param>

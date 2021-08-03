@@ -93,8 +93,8 @@ public class ProductController {
 
 	@PostMapping("/register")
 	public String register(String[] po_name, String[] po_quantity, String[] po_price, ProductVO product,
-			RedirectAttributes rttr, MultipartFile[] upload, HttpServletRequest request) {
-
+			RedirectAttributes rttr, HttpServletRequest request, @RequestParam("file")MultipartFile file) {
+		
 		/* 카테고리가 비어 있을 때 돌려보냄 */
 		if (product.getCategory_seq() == 0) {
 			rttr.addFlashAttribute("product", product);
@@ -136,7 +136,20 @@ public class ProductController {
 			total += Integer.parseInt(po_q);
 		}
 		product.setProduct_quantity(total);
-
+		
+		// aws s3 파일업로드
+		
+		product.setProduct_filename(file.getOriginalFilename());
+		
+		// service
+		service.register(product, file);
+		
+		rttr.addFlashAttribute("result", product.getProduct_seq());
+		rttr.addFlashAttribute("messageTitle", "등록 성공");
+		rttr.addFlashAttribute("messageBody", product.getProduct_seq() + "번 게시물 등록 되었습니다.");
+		
+/*      //기존 파일 업로드 주석
+ 
 		// 파일 올리는 방법 복사
 		// 파일이 업로드 될 경로 설정
 		String saveDir = request.getSession().getServletContext().getRealPath("/resources/upload");
@@ -148,7 +161,7 @@ public class ProductController {
 			dir.mkdirs();
 		}
 		// 파일 업로드
-		// 철수추가 파일 이름 list추가
+		// 파일 이름 list추가
 		List<String> reNames = new ArrayList<String>();
 		for (MultipartFile f : upload) {
 			if (!f.isEmpty()) {
@@ -167,25 +180,25 @@ public class ProductController {
 					e.printStackTrace();
 				}
 
-				// 철수추가
 				reNames.add(reName);
 			}
 		}
-
-		/* 파일이 하나도 첨부되어있지 않을때 다시돌려보냄 */
+		// 파일이 하나도 첨부되어있지 않을때 다시돌려보냄
 		if (reNames.size() == 0) {
 			rttr.addFlashAttribute("product", product);
 			rttr.addFlashAttribute("message", "상품이미지를 한 개이상 등록해야합니다.");
 			return "redirect:/product/register";
 		}
 
-		// 철수추가 파일 올린 후에 그 이름을 product에 복사
+		// 파일 올린 후에 그 이름을 product에 복사
 		// list를 string 쉼표구분으로 만들기
 		String filenames = String.join(",", reNames);
 		product.setProduct_filename(filenames);
 		System.out.println(filenames);
-		/* System.out.println(product.getProduct_filename()); */
-
+		// System.out.println(product.getProduct_filename());
+		 * 
+*/
+		
 		/*
 		 * 다시 list로 얻는 방법 List<String> fileNamesList =
 		 * Arrays.asList(filenames.split(",")); System.out.println(fileNamesList);
@@ -637,12 +650,10 @@ public class ProductController {
 		return "redirect:/user/userOrderList";
 	}
 
-	/* 상품삭제 */
+	/* 삭제참고용-구현만해둠 */
 	@PostMapping("/remove")
-	public String remove(@RequestParam("order_seq") ArrayList<Integer> order_seq, 
-						 @RequestParam("product_seq") int product_seq, 
-						 Criteria cri, HttpServletRequest request,
-						 RedirectAttributes rttr) {
+	public String remove(@RequestParam("product_seq") int product_seq, Criteria cri, HttpServletRequest request,
+			RedirectAttributes rttr) {
 
 		ProductVO vo = service.get(product_seq);
 
@@ -666,11 +677,6 @@ public class ProductController {
 					file.delete();
 				}
 			}
-			/* 장바구니 삭제 */
-			for (int no : order_seq) {
-				userService.orderDel(no);
-			}
-			
 
 			rttr.addFlashAttribute("message", "해당 상품이 삭제되었습니다.");
 		}
