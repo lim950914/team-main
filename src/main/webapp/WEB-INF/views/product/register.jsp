@@ -169,6 +169,7 @@ var userSeq = '${authUser.user_seq}';
     margin: 0 0px;
     line-height: 45px;
     float: right;
+ 	margin-top: 10px;
 	}
 table.type05 {
   border-collapse: separate;
@@ -238,10 +239,73 @@ table.type05 td {
 						</tr>
 						<tr>
 							<th scope="row">상품 설명 *</th>
-							<td><textarea class="inputTop form-control" style="resize: none;" id="product_info" name="product_info" rows="15" cols="50">${product.product_info }</textarea></td>
+							<td><textarea class="inputTop form-control" style="resize: none;" id="product_info" name="product_info">${product.product_info }</textarea></td>
+						</tr>
+						<tr>
+							<th scope="row">상품 메인 이미지*</th>
+							<td>
+								<div class = "input-group-text">
+						 			<input type="file" name="upload" id="input_imgs" multiple="multiple" accept="image/*"/>
+								</div>	
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">상품 상세 이미지*</th>
+							<td>
+								<div class = "input-group-text">
+							 		<input type="file" name="upload" id="input_imgs2" multiple="multiple" accept="image/*"/>
+								</div>	
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">미리보기*</th>
+							<td>
+							<div class="imgs_wrap2">
+								<img id="img2"/>
+							</div>
+							</td>
 						</tr>
 					</tbody>
 				</table>
+				
+				<script>
+					  
+					  $("#input_imgs2").on("change", handleImgFileSelect);
+					  //이미지셀렉트
+					  function handleImgFileSelect(e){
+							//이미지 정보를 초기화
+							$(".imgs_wrap2").empty();
+							
+							var files = e.target.files;
+							var filesArr = Array.prototype.slice.call(files);
+						
+							filesArr.forEach(function(f){
+								if(!f.type.match("image.*")){
+									
+									// 이전에 쓰던 모달창 복붙한거로나오게
+									var message = "그림파일형석만 허용됩니다";
+									function checkModal(message){
+										if (message && history.state == null) {
+											$("#myModal .modal-body p").html(message)
+											$("#myModal").modal("show");
+										}
+									}
+									checkModal(message);
+									
+									return;
+								}
+								
+								var reader = new FileReader();
+								reader.onload = function(e){
+									
+									 var html = "<td><img width=\"50\" src=\""+e.target.result+"\"></td>";
+									$(".imgs_wrap2").append(html);
+								
+								}
+								reader.readAsDataURL(f);
+							});
+					 }
+				 	</script>
 				
 				<h5 class="my-3">상품 옵션 (첫번째 입력항목이 메인에 띄워집니다.)</h5>
 				
@@ -266,17 +330,14 @@ table.type05 td {
 
 				</div>
 				
-				<h5 class="my-3">상품이미지 첨부* (반드시 한 개 이상의 이미지를 올려야합니다.)</h5>
+				<h5 class="my-3">메인 이미지 미리보기*</h5>
 				
 				<!--이미지첨부시작  -->
-					
-					<div class = "input-group-text">
-						 <input type="file" name="upload" id="input_imgs" multiple="multiple" accept="image/*"/>
-					</div>	
 					<div class="imgs_wrap">
 						<img id="img"/>
 					</div>
-				
+					
+					
 					<script>
 					  
 					  $("#input_imgs").on("change", handleImgFileSelect);

@@ -410,7 +410,7 @@ $(document).ready(function(){
                         
                   </td>
                </tr>
-               <tr>
+               <tr style="height: 80px;">
                   <td colspan="2">
                            <div class="row justify-content-center mt-3">
                               <!--수정버튼(작성자만보이도록)  -->
@@ -473,18 +473,33 @@ $(document).ready(function(){
                               
                            </div>
                   </td>
-               </tr>
-               <tr style="height: 52px;">
-                   
-               </tr>
-               <tr style="height: 70px;">
-                  <td colspan="3">
-                  </td>
-               </tr>               
             </table>
             
+            <hr>
+            
             <div style="text-align: center;">
-               <h1>이미지 자리</h1>
+<%--                <form>
+                  <img id="productSubImage1" class="card-img-top" src="${appRoot }/resources/upload/${productImgList[1] }" alt="제품이미지">
+               </form>
+               <form>
+                  <img id="productSubImage2" class="card-img-top" src="${appRoot }/resources/upload/${productImgList[2] }" alt="제품이미지">
+               </form>
+               <form>
+                  <img id="productSubImage3" class="card-img-top" src="${appRoot }/resources/upload/${productImgList[3] }" alt="제품이미지">
+               </form>
+               <form>
+                  <img id="productSubImage4" class="card-img-top" src="${appRoot }/resources/upload/${productImgList[4] }" alt="제품이미지">
+               </form>
+               <form>
+                  <img id="productSubImage5" class="card-img-top" src="${appRoot }/resources/upload/${productImgList[5] }" alt="제품이미지">
+               </form> --%>
+               <div class="imgs_wrap">
+                  <c:forEach items="${productImgList }" var="product_img">   
+               <div>
+                  <img width="500" src="${appRoot }/resources/upload/${product_img }"/>
+               </div>
+               </c:forEach>
+               </div>
             </div>
                
                <hr>            
